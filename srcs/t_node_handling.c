@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:15:18 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/10 17:34:07 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/11 18:35:25 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_node		*new_node(int x, int y, int z)
 		return (NULL);
 	new->x = y;
 	new->y = x;
-	new->z = z;
+	new->z = -z;
 	return (new);
 }
 
