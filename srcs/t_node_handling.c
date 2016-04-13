@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:15:18 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/11 18:35:25 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/13 22:53:25 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ t_node		*init_node(void)
 	new->x = 0;
 	new->y = 0;
 	new->z = 0;
+	new->index = 0;
 	new->next = NULL;
 	return (new);
 }
 
-t_node		*new_node(int x, int y, int z)
+t_node		*new_node(int x, int y, int z, int i)
 {
 	t_node	*new;
 
@@ -34,15 +35,16 @@ t_node		*new_node(int x, int y, int z)
 	new->x = y;
 	new->y = x;
 	new->z = -z;
+	new->index = i;
 	return (new);
 }
 
-t_node		*insert_node(t_node *list, int x, int y, int z)
+t_node		*insert_node(t_node *list, int x, int y, int z, int i)
 {
 	t_node	*new;
 	t_node	*tmp;
 
-	if (!(new = new_node(x, y, z)))
+	if (!(new = new_node(x, y, z, i)))
 		return (NULL);
 	if (!list)
 		return (new);

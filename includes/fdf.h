@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 13:03:55 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/11 12:49:45 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/13 22:53:37 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 t_node			*get_map(char *file);
 t_node		*init_node(void);
-t_node		*new_node(int x, int y, int z);
-t_node		*insert_node(t_node *list, int x, int y, int z);
+t_node		*new_node(int x, int y, int z, int index);
+t_node		*insert_node(t_node *list, int x, int y, int z, int index);
 t_iso		*init_node_iso(void);
 t_iso		*new_node_iso(t_node *list);
 t_iso		*insert_node_iso(t_iso *list, t_node *cc);

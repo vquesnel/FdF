@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/11 12:09:41 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/13 22:53:08 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ static t_node	*convert_map(t_node *list, char *line)
 	int			y;
 	char		**map;
 	static int	x;
+	static int	i;
 
 	y = 0;
 	map = ft_strsplit(line, ' ');
 	while (map[y])
 	{
-		list = insert_node(list, x * 3, y * 3, ft_atoi(map[y]) * 3);
+		list = insert_node(list, x * 3, y * 3, ft_atoi(map[y]) * 3, i);
+		i++;
 		y++;
 	}
 	x++;
