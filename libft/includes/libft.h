@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/08 15:25:07 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/13 14:09:07 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,15 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # define BUFF_SIZE 24
-# define MAX_FILES 256
 
-int		get_next_line(int const fd, char **line);
+typedef struct		s_save
+{
+	int				fd_num;
+	char			*rest;
+	struct s_save	*next;
+}					t_save;
+
+int				get_next_line(int const fd, char **line);
 
 typedef struct	s_list
 {
@@ -89,6 +95,8 @@ char			**ft_strsplit(const char *s, char c);
 void			ft_swap(int *a, int *b);
 int				ft_abs(int c);
 int				ft_clear_tab(char **tab);
+char		*ft_strcpylimit(char *str, char n);
+char	*ft_strjoinfrees2(char *s1, char *s2);
 
 /*
 ** MATHS

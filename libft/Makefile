@@ -6,7 +6,8 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/19 17:36:29 by vquesnel          #+#    #+#              #
-#*   Updated: 2016/03/28 13:29:25 by vquesnel         ###   ########.fr       *#
+#    Updated: 2016/04/13 14:06:22 by vquesnel         ###   ########.fr        #
+#   Updated: 2016/03/28 13:29:25 by vquesnel         ###   ########.fr         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +74,10 @@ SRC =ft_atoi.c \
 	 ft_swap.c \
 	 ft_abs.c \
 	 ft_clear_tab.c \
-	 get_next_line.c
+	 get_next_line.c \
+	 ft_strjoinfrees2.c \
+	 ft_strcpylimit.c
+
 
 HEADER = ./includes
 OBJ =  $(SRC:.c=.o)
@@ -84,14 +88,16 @@ $(NAME):
 	@gcc -Wall -Werror -Wextra -c $(SRC) -I $(HEADER)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "\033[32;1m$(NAME) has been created\033[0m"
+	@echo "\033[32;1mlibft has been created\033[0m"
 
 clean:
 	@rm -rf $(OBJ)
-	@echo "\033[37mall libft_files.o are deleted\033[0m"
+	@echo "\033[37mall files.o are deleted\033[0m"
+
 fclean: clean
 	@rm -rf $(NAME)
 	@echo "\033[31m$(NAME) is deleted\033[0m"
+
 re: fclean all
 
 .PHONY: all clean fclean re

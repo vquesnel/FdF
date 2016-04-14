@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_strcpy_limit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/01 19:03:46 by vquesnel          #+#    #+#             */
-/*   Updated: 2015/12/01 19:05:15 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/13 12:47:05 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/13 14:06:34 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_swap(int *a, int *b)
+char		*ft_strcpylimit(char *str, char n)
 {
-	int	tmp;
+	int		i;
+	char	*dst;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
+	i = 0;
+	while (str[i] && str[i] != n)
+		i++;
+	if ((dst = (char *)ft_memalloc(i + 1)) == NULL)
+		return (NULL);
+	i = 0;
+	while (str[i] && str[i] != n)
+	{
+		dst[i] = str[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

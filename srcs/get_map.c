@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 11:58:46 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/14 12:44:09 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,12 @@ int				get_xmax(t_node *cc)
 	tmp = cc;
 	while (tmp->next)
 	{
-		printf("------------\ntmp->y == %d\n", tmp->x);
-		printf("tmp->next->y == %d\n------------\n", tmp->next->x);
 		if (tmp->x < tmp->next->x)
-			x = tmp->next->y;
+			x = tmp->next->y / 3;
 		else
 			break ;
 		tmp = tmp->next;
 	}
-	printf("-----------\ny = %d\n-----------\n", x);
 	return (x);
 }
 t_node			*get_map(char *file)
@@ -89,7 +86,6 @@ t_node			*get_map(char *file)
 			free(line);
 			i++;
 		}
-		printf("index = %d\n", new->index);
 		tmp = new;
 		max.y_max = i;
 		max.x_max = get_xmax(tmp);
