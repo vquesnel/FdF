@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 14:36:40 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/14 15:29:43 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,25 @@ static int				get_xmax(t_node *cc)
 	return (x);
 }
 
+static int				get_ymax(t_node *cc)
+{
+	int		y;
+	t_node *tmp;
+
+	y = 0;
+	tmp = cc;
+	while (tmp->next)
+	{
+		if (tmp->y <= tmp->next->y)
+			y = tmp->next->y / ZOOM;
+		else
+			break ;
+		tmp = tmp->next;
+	}
+	return (y);
+}
+
+
 t_node			*get_map(char *file)
 {
 	int			fd;
@@ -85,10 +104,9 @@ t_node			*get_map(char *file)
 				ft_putstr("Invalid map.");
 			new = convert_map(new, line);
 			free(line);
-			i++;
 		}
 		tmp = new;
-		max.y_max = i;
+		max.y_max = get_ymax(tmp);
 		max.x_max = get_xmax(tmp);
 	}
 	else
