@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 14:14:14 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/14 14:36:40 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static t_node	*convert_map(t_node *list, char *line)
 	map = ft_strsplit(line, ' ');
 	while (map[y])
 	{
-		list = insert_node(list, x * 3, y * 3, ft_atoi(map[y]) * 3, index);
+		list = insert_node(list, x * ZOOM, y * ZOOM, ft_atoi(map[y]) * ZOOM, index);
 		y++;
 		index++;
 	}
@@ -58,7 +58,7 @@ static int				get_xmax(t_node *cc)
 	while (tmp->next)
 	{
 		if (tmp->x < tmp->next->x)
-			x = tmp->next->x / 3;
+			x = tmp->next->x / ZOOM;
 		else
 			break ;
 		tmp = tmp->next;
@@ -93,5 +93,7 @@ t_node			*get_map(char *file)
 	}
 	else
 		ft_putstr("Can't open the map file.");
+	printf("--------\nmax.y == %d\n", max.y_max);
+	printf("max.x == %d\n--------\n", max.x_max);
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:24:26 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/13 22:53:52 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/14 14:22:38 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,8 @@ int			main(int ac, char **av)
 
 	new = init_mlx();
 	coucou = get_map(av[ac-1]);
-	cc = parallel(get_map(av[ac - 1]));
+	cc = parallel(coucou);
 	tmp = coucou;
-	while (tmp)
-	{
-		printf("index = %d\n", tmp->index);
-		tmp = tmp->next;
-	}
 	iso = cc;
 	while (iso->next)
 	{

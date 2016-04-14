@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 14:12:56 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 09:48:12 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/14 14:23:26 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_iso		*new_node_iso(t_node *cc)
 
 	if (!(new = init_node_iso()))
 		return (NULL);
-	new->X = cc->x * CTE1 - CTE2 * cc->y + 700;
+	new->X = cc->x * CTE1 - CTE2 * cc->y + 400;
 	new->Y = cc->z + CTE1 / 2 * cc->x + CTE2 / 2 * cc->y + 300;
 	new->index = cc->index;
 	return (new);
