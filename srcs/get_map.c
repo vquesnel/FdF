@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/13 22:53:08 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/14 11:58:46 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,50 @@ static t_node	*convert_map(t_node *list, char *line)
 	int			y;
 	char		**map;
 	static int	x;
-	static int	i;
+	static int	index;
 
 	y = 0;
 	map = ft_strsplit(line, ' ');
 	while (map[y])
 	{
-		list = insert_node(list, x * 3, y * 3, ft_atoi(map[y]) * 3, i);
-		i++;
+		list = insert_node(list, x * 3, y * 3, ft_atoi(map[y]) * 3, index);
 		y++;
+		index++;
 	}
 	x++;
 	return (list);
 }
 
+int				get_xmax(t_node *cc)
+{
+	int		x;
+	t_node *tmp;
+
+	x = 0;
+	tmp = cc;
+	while (tmp->next)
+	{
+		printf("------------\ntmp->y == %d\n", tmp->x);
+		printf("tmp->next->y == %d\n------------\n", tmp->next->x);
+		if (tmp->x < tmp->next->x)
+			x = tmp->next->y;
+		else
+			break ;
+		tmp = tmp->next;
+	}
+	printf("-----------\ny = %d\n-----------\n", x);
+	return (x);
+}
 t_node			*get_map(char *file)
 {
 	int			fd;
 	char		*line;
 	t_node		*new;
+	t_node		*tmp;
+	t_coordmax	max;
+	int			i;
 
+	i = 0;
 	new = NULL;
 	if ((fd = open(file, O_RDONLY)))
 	{
@@ -63,7 +87,14 @@ t_node			*get_map(char *file)
 				ft_putstr("Invalid map.");
 			new = convert_map(new, line);
 			free(line);
+			i++;
 		}
+		printf("index = %d\n", new->index);
+		tmp = new;
+		max.y_max = i;
+		max.x_max = get_xmax(tmp);
+		printf("----------y-max = %d\n", max.y_max);
+		printf("----------x-max = %d\n", max.x_max);
 	}
 	else
 		ft_putstr("Can't open the map file.");

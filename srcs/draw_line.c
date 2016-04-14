@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 19:43:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/11 18:14:19 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/14 09:48:58 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,14 +114,11 @@ static void			draw_y(t_mlx *new, t_iso *start, t_iso *end)
 	if (end->Y < start->Y)
 		return (draw_y_rev(new, start, end));
 	pos.Y = start->Y;
-	printf("pos.Y == %d\n", pos.Y);
-	printf("ed->Y == %d\n", end->Y);
 	while (pos.Y <= end->Y)
 	{
 		printf("draw_y\n");
 		pos.X = start->X + ((end->X - start->X) * (pos.Y - start->Y))
 			/ (end->Y - start->Y);
-		printf("pos.X == %d\n", pos.X);
 		mlx_pixel_put(new->mlx, new->win, pos.X, pos.Y, 0xFF0000);
 		pos.Y++;
 	}
