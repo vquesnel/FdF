@@ -6,11 +6,11 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 21:17:10 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 09:33:26 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/14 13:55:08 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 t_line		*init_list(const int fd)
 {

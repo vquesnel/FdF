@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/13 14:09:07 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/14 14:00:46 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # define BUFF_SIZE 24
+# define EOL '\n'
 
-typedef struct		s_save
+typedef struct		s_line
 {
-	int				fd_num;
-	char			*rest;
-	struct s_save	*next;
-}					t_save;
+	int				fd;
+	char			*line;
+	struct s_line	*next;
+}					t_line;
 
 int				get_next_line(int const fd, char **line);
 
