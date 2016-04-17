@@ -6,172 +6,105 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 19:43:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 09:48:58 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/14 23:41:29 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "fdf.h"
-
-  static void		draw_vertical(t_mlx *new, t_iso *start, t_iso *end)
-  {
-  double		x;
-
-  if (start->X > end->X)
-  return (draw_vertical(new, end, start));
-  x = start->X - end->X;
-  if (x == 0)
-  {
-  if (start->Y > end->Y)
-  ft_swap((int *)(&(start->Y)), (int *)(&(end->Y)));
-  while (start->Y <= end->Y)
-  {
-  mlx_pixel_put(new->mlx, new->win, start->X, start->Y, 0xFF0000);
-  start->Y++;
-  }
-  }
-  }
-
-  static void		draw_horizontal(t_mlx *new, t_iso *start, t_iso *end)
-  {
-  double		y;
-
-  if (start->X > end->X)
-  return (draw_horizontal(new, end, start));
-  y = start->Y - end->Y;
-  if (y == 0)
-  {
-  while (start->X >= end->X)
-  {
-  mlx_pixel_put(new->mlx, new->win, start->X, start->Y, 0x00FF00);
-  start->X++;
-  }
-  }
-  }
-
-  static void		draw_affine(t_mlx *new, t_iso *start, t_iso *end)
-  {
-  t_iso	*coef;
-  double y;
-
-  coef = init_node_iso();
-  coef->X = (end->Y - start->Y) / (end->X - start->X);
-  coef->Y = start->Y - (coef->X * start->X);
-  if (start->X > end->X)
-  ft_swap((int *)(&(start->X)), (int *)(&(end->X)));
-  while (start->X < end->X)
-  {
-  y = coef->X * start->X + coef->Y;
-  while ( y > coef->X * (start->X + 1) + coef->Y)
-  {
-  mlx_pixel_put(new->mlx, new->win, start->X, y, 0x0000FF);
-  y--;
-  }
-  start->X++;
-  }
-  }
-
-
-  void		draw_lines(t_mlx *new, t_iso *start, t_iso *end)
-  {
-  t_iso	*cons2;
-
-  cons2 = init_node_iso();
-  if (start->X < end->X)
-  return (draw_lines(new, end, start));
-  if (start->X - end->X == 0)
-  draw_vertical(new, start, end);
-  else
-{
-	if (start->Y - end->Y == 0)
-		draw_horizontal(new, start, end);
-	else
-		draw_affine(new, start, end);
-}
-}*/
-
-
 #include "fdf.h"
 
-static void		draw_y_rev(t_mlx *new, t_iso *start, t_iso *end)
+static void		draw_vertical(t_mlx *new, t_node *start, t_node *end)
 {
-	t_iso		pos;
+	double		x;
 
-	pos.Y = start->Y;
-	while (pos.Y >= end->Y)
+	if (start->x_iso > end->y_iso)
+		return (draw_vertical(new, end, start));
+	x = start->x_iso - end->x_iso;
+	if (x == 0)
 	{
-		printf("draw_y_rev\n");
-		pos.X = start->X + ((end->X - start->X) * (pos.Y - start->Y))
-			/ (end->Y - start->Y);
-		mlx_pixel_put(new->mlx, new->win, pos.X, pos.Y, 0xFF0000);
-		pos.Y--;
+		if (start->y_iso > end->y_iso)
+			ft_swap((int *)(&(start->y_iso)), (int *)(&(end->y_iso)));
+		while (start->y_iso <= end->y_iso)
+		{
+			mlx_pixel_put(new->mlx, new->win, start->x_iso, start->y_iso, 0xFF0000);
+			start->y_iso++;
+		}
 	}
 }
 
-static void			draw_y(t_mlx *new, t_iso *start, t_iso *end)
+static void		draw_horizontal(t_mlx *new, t_node *start, t_node *end)
 {
-	t_iso		pos;
+	double		y;
 
-	if (end->Y < start->Y)
-		return (draw_y_rev(new, start, end));
-	pos.Y = start->Y;
-	while (pos.Y <= end->Y)
+	if (start->x_iso > end->x_iso)
+		return (draw_horizontal(new, end, start));
+	y = start->y_iso - end->y_iso;
+	if (y == 0)
 	{
-		printf("draw_y\n");
-		pos.X = start->X + ((end->X - start->X) * (pos.Y - start->Y))
-			/ (end->Y - start->Y);
-		mlx_pixel_put(new->mlx, new->win, pos.X, pos.Y, 0xFF0000);
-		pos.Y++;
+		while (start->x_iso >= end->x_iso)
+		{
+			mlx_pixel_put(new->mlx, new->win, start->x_iso, start->y_iso, 0x00FF00);
+			start->x_iso++;
+		}
 	}
 }
 
-static void			draw_x_rev(t_mlx *new, t_iso *start, t_iso *end)
+static void		draw_affine(t_mlx *new, t_node *start, t_node *end)
 {
-	t_iso		pos;
+	t_node	*coef;
+	double y;
 
-	pos.X = start->X;
-	while (pos.X >= end->X)
+	coef = init_node();
+	coef->x_iso = (end->y_iso - start->y_iso) / (end->x_iso - start->x_iso);
+	coef->y_iso = start->y_iso - (coef->x_iso * start->x_iso);
+	if (start->x_iso > end->x_iso)
+		ft_swap((int *)(&(start->x_iso)), (int *)(&(end->x_iso)));
+	while (start->x_iso < end->x_iso)
 	{
-		printf("draw_x_rev\n");
-		pos.Y = start->Y + ((end->Y - start->Y) * (pos.X - start->X))
-			/ (end->X - start->X);
-		mlx_pixel_put(new->mlx, new->mlx, pos.X, pos.Y, 0xFF0000);
-		pos.X--;
+		y = coef->x_iso * start->x_iso + coef->y_iso;
+		while ( y > coef->x_iso * (start->x_iso + 1) + coef->y_iso)
+		{
+			mlx_pixel_put(new->mlx, new->win, start->x_iso, y, 0x0000FF);
+			y--;
+		}
+		start->x_iso++;
 	}
 }
 
-static void			draw_x(t_mlx *new, t_iso *start, t_iso *end)
-{
-	t_iso		pos;
 
-	if (end->X < start->X)
-		return (draw_x_rev(new, start, end));
-	pos.X = start->X;
-	while (pos.X <= end->X)
+void		draw_lines(t_mlx *new, t_node *start, t_node *end)
+{
+
+	if (start->x_iso < end->x_iso)
+		return (draw_lines(new, end, start));
+	if (start->x_iso - end->x_iso == 0)
+		draw_vertical(new, start, end);
+	else
 	{
-		printf("draw_x\n");
-		pos.Y = start->Y + ((end->Y - start->Y) * (pos.X - start->X))
-			/ (end->X - start->X);
-		mlx_pixel_put(new->mlx, new->win, pos.X, pos.Y, 0xFF0000);
-		pos.X++;
+		if (start->y_iso - end->y_iso == 0)
+			draw_horizontal(new, start, end);
+		else
+			draw_affine(new, start, end);
 	}
 }
 
-void		draw_line(t_mlx *new, t_iso *start, t_iso *end)
+void		draw_line(t_mlx *new, t_node *start, t_coordmax coord)
 {
-	int		x;
-	int		y;
+	t_node *tmp;
 
-	x = end->X - start->X;
-	y = end->Y - start->Y;
-	printf("---------------\nx = %d// y = %d\n", x, y);
-	if (x < 0)
-		x = -x;
-	if (y < 0)
-		y = -y;
-	if (x == 0 && y == 0)
-		return ;
-	else if (y == 0 || x >= y)
-		draw_x(new, start, end);
-	else if (x == 0 || y >= x)
-		draw_y(new, start, end);
+	tmp = start;
+	while (tmp)
+	{
+		if (tmp->x != coord.x_max && tmp->y != coord.y_max)
+		{
+			draw_lines(new, tmp, tmp->next);
+			draw_lines(new, tmp, searchinlist(tmp, coord));
+		}
+		else if (tmp->x == coord.x_max && tmp->y != coord.y_max)
+			draw_lines(new, tmp, searchinlist(tmp, coord));
+		else if (tmp->x != coord.x_max && tmp->y == coord.y_max)
+			draw_lines(new, tmp, tmp->next);
+		else if (tmp->x == coord.x_max && tmp->y == coord.y_max)
+			break ;
+		tmp = tmp->next;
+	}
 }

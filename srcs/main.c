@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:24:26 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 15:25:58 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/17 16:30:03 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 int			main(int ac, char **av)
 {
-	t_iso	*cc;
 	t_node	*tmp;
 	t_mlx	*new;
 	t_node	*coucou;
-	t_iso	*iso;
+	t_coordmax coord;
+	int i;
 
 	new = init_mlx();
 	coucou = get_map(av[ac-1]);
-	cc = parallel(coucou);
+	coord.x_max = get_xmax(coucou);
+	coord.y_max = get_ymax(coucou);
 	tmp = coucou;
-	iso = cc;
-	while (iso->next)
+	i = 1;
+	while (tmp->next)
 	{
-		mlx_pixel_put(new->mlx, new->win, iso->X, iso->Y, 0xFF0000);
-	//	draw_line(new, iso, iso->next);
-		iso = iso->next;
+		mlx_pixel_put(new->mlx, new->win, tmp->x_iso, tmp->y_iso, 0xFF0000);
+		//draw_line(new, tmp, coord);
+		tmp = tmp->next;
 	}
 	mlx_loop(new->mlx);
 	return (0);

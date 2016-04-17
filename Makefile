@@ -6,15 +6,14 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/24 13:03:29 by vquesnel          #+#    #+#              #
-#*   Updated: 2016/04/09 12:02:40 by vquesnel         ###   ########.fr       *#
+#*   Updated: 2016/04/14 22:52:46 by vquesnel         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 NAME= fdf
 
 SRCS= srcs/draw_line.c srcs/t_node_handling.c srcs/get_map.c srcs/main.c \
-		srcs/t_iso_handling.c srcs/parallel.c srcs/init_mlx.c
-
+		srcs/t_iso_handling.c srcs/parallel.c srcs/init_mlx.c srcs/searchinlist.c
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/
