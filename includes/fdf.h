@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 13:03:55 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/17 16:37:20 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/17 19:56:41 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define CTE2 0.75
 # define X_SIZE 1000
 # define Y_SIZE 1000
-# define ZOOM 4
+# define ZOOM 15
 
 t_node		*get_map(char *file);
 t_node		*init_node(void);

@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:24:26 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/17 16:30:03 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/17 19:48:55 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			main(int ac, char **av)
 	coord.y_max = get_ymax(coucou);
 	tmp = coucou;
 	i = 1;
-	while (tmp->next)
+	while (tmp)
 	{
 		mlx_pixel_put(new->mlx, new->win, tmp->x_iso, tmp->y_iso, 0xFF0000);
 		//draw_line(new, tmp, coord);
