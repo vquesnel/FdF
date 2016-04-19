@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 19:43:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 16:20:17 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/19 16:27:26 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void		draw_affine(t_mlx *new, t_node *start, t_node *end)
 	i = tmp->x_iso;
 	coef.coef = (float)(end->y_iso - tmp->y_iso) / (float)(end->x_iso - tmp->x_iso);
 	coef.cons = tmp->y_iso - (coef.coef * tmp->x_iso);
-	printf("coef.coef == %f\n", coef.coef);
 	while (i < end->x_iso)
 	{
 		y = coef.coef * i + coef.cons;
