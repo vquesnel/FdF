@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 13:03:55 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 14:29:22 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/19 17:03:48 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define CTE2 0.75
 # define X_SIZE 1000
 # define Y_SIZE 1000
-# define ZOOM 25
+# define ZOOM 5
 
 t_node		*get_map(char *file);
 t_node		*init_node(void);
@@ -34,5 +34,6 @@ t_node		*searchinlist(t_node *list, t_coordmax coord);
 int			get_ymax(t_node *cc);
 int			get_xmax(t_node *cc);
 t_mlx		*init_mlx(void);
+t_node		*searchnextinlist(t_node *list);
 
 #endif

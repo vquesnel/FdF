@@ -6,12 +6,25 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 15:17:31 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 12:04:57 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/19 17:05:29 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+t_node		*searchnextinlist(t_node *list)
+{
+	t_node *tmp;
+
+	tmp = list;
+	while (tmp)
+	{
+		if (tmp->index == list->index + 1)
+			return (tmp);
+		tmp = tmp->next;
+	}
+	return (NULL);
+}
 t_node		*searchinlist(t_node *list, t_coordmax coord)
 {
 	t_node *tmp;
