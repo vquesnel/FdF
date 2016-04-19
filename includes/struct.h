@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:07:09 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 22:32:21 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/19 16:20:13 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,11 @@ typedef struct		s_node
 	struct s_node	*next;
 }					t_node;
 
-typedef struct		s_iso
+typedef struct		s_coef
 {
-	int			X;
-	int			Y;
-	int			index;
-	struct s_iso	*next;
-}					t_iso;
+	float			coef;
+	float			cons;
+}					t_coef;
 
 typedef struct		s_coordmax
 {

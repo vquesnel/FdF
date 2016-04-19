@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 19:43:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 15:37:55 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/19 16:20:17 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void		draw_vertical(t_mlx *new, t_node *start, t_node *end)
 
 static void		draw_affine(t_mlx *new, t_node *start, t_node *end)
 {
-	t_node	*coef;
+	t_coef	coef;
 	int		y;
 	t_node	*tmp;
 	int		i;
@@ -41,14 +41,14 @@ static void		draw_affine(t_mlx *new, t_node *start, t_node *end)
 	if (start->x_iso > end->x_iso)
 		return (draw_affine(new, end, start));
 	tmp = start;
-	coef = init_node();
 	i = tmp->x_iso;
-	coef->x_iso = (end->y_iso - tmp->y_iso) / (end->x_iso - tmp->x_iso);
-	coef->y_iso = tmp->y_iso - (coef->x_iso * tmp->x_iso);
+	coef.coef = (float)(end->y_iso - tmp->y_iso) / (float)(end->x_iso - tmp->x_iso);
+	coef.cons = tmp->y_iso - (coef.coef * tmp->x_iso);
+	printf("coef.coef == %f\n", coef.coef);
 	while (i < end->x_iso)
 	{
-		y = coef->x_iso * i + coef->y_iso;
-		while ( y > coef->x_iso * (i + 1) + coef->y_iso)
+		y = coef.coef * i + coef.cons;
+		while ( y > coef.coef * (i + 1) + coef.cons)
 		{
 			mlx_pixel_put(new->mlx, new->win, i, y, 0x0000FF);
 			y--;
