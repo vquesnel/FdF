@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:15:18 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 14:57:25 by kwiessle         ###   ########.fr       */
+/*   Updated: 2016/04/20 15:03:27 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_node		*new_node(int x, int y, int z, int i, int color)
 		return (NULL);
 	new->x = y;
 	new->y = x;
-	new->z = z;
+	new->z = -z;
 	new->x_iso = round(new->x * CTE1 - CTE2 * new->y + 400);
 	new->y_iso = round(new->z + CTE1 / 2 * new->x + CTE2 / 2 * new->y + 300);
 	new->index = i;
