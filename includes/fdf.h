@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 13:03:55 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 14:55:19 by kwiessle         ###   ########.fr       */
+/*   Updated: 2016/04/20 15:04:46 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,11 @@
 
 # include "libft.h"
 # include "struct.h"
+# include "define.h"
 # include <mlx.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
-# define D_COLOR 0xFFFFFF
-# define CTE1 0.9
-# define CTE2 0.9
-# define X_SIZE 1000
-# define Y_SIZE 1000
-# define ZOOM 2
 
 t_node		*get_map(char *file);
 t_node		*init_node(void);

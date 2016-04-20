@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 14:06:50 by kwiessle         ###   ########.fr       */
+/*   Updated: 2016/04/20 15:06:39 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ static int		is_valid(char c)
 {
 	if (ft_ishexa(c) == 1)
 	{
-		//printf("ret ishexa :%d\n", ft_ishexa(c));
 		return (0);
 	}
 	if (ft_isfdf(c) == 1)
 	{
-		//printf("ret isfdf :%d\n", ft_isfdf(c));
 		return (0);
 	}
 	return (1);
@@ -51,7 +49,7 @@ static t_node	*convert_map(t_node *list, char *line)
 			}
 			i++;
 		}
-		list = insert_node(list, x * ZOOM, y * ZOOM, ft_atoi(map[y]) * ZOOM , index, color);
+		list = insert_node(list, x * ZOOM, y * ZOOM, ft_atoi(map[y]) * ZOOM, index, color);
 		color = D_COLOR;
 		y++;
 		index++;
@@ -118,14 +116,12 @@ t_node			*get_map(char *file)
 			{
 				if (is_valid(line[y]) == 1)
 				{
-					//printf("%d\n", line[y]);
-					//printf("%s\n", line);
-					//ft_putstr("invalid map\n");
+					ft_putstr("invalid map\n");
 				}
 				y++;
 			}
 			new = convert_map(new, line);
-		//	free(line);
+			free(line);
 		}
 	}
 	else
