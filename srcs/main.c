@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:24:26 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 16:47:21 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 13:39:14 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int			main(int ac, char **av)
 	tmp = coucou;
 	while (tmp)
 	{
-		mlx_pixel_put(new->mlx, new->win, tmp->x_iso, tmp->y_iso, 0xFF0000);
 		draw_line(new, tmp, coord);
 		tmp = tmp->next;
 	}

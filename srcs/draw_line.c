@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 19:43:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 17:03:07 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 13:55:48 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,22 @@ static void		draw_affine(t_mlx *new, t_node *start, t_node *end, int color)
 	while (i < end->x_iso)
 	{
 		y = coef.coef * i + coef.cons;
-		while ( y > coef.coef * (i + 1) + coef.cons)
+		if (y > coef.coef * (i + 1) + coef.cons)
+		{
+			while ( y > coef.coef * (i + 1) + coef.cons)
 		{
 			mlx_pixel_put(new->mlx, new->win, i, y, color);
 			y--;
 		}
+		}
+		else
+		{
+			while ( y < coef.coef * (i + 1) + coef.cons)
+		{
+			mlx_pixel_put(new->mlx, new->win, i, y, color);
+			y++;
+		}
+	}
 		i++;
 	}
 }
@@ -77,10 +88,10 @@ void 		draw_line(t_mlx *new, t_node *start, t_coordmax coord)
 	if (tmp->x / ZOOM != coord.x_max && tmp->y / ZOOM != coord.y_max)
 	{
 		draw_lines(new, tmp, searchnextinlist(tmp), 0xFF0000);
-		draw_lines(new, tmp, searchinlist(tmp, coord), 0x0000FF);
+		draw_lines(new, tmp, searchinlist(tmp, coord), 0xFF0000);
 	}
 	else if (tmp->x / ZOOM == coord.x_max && tmp->y / ZOOM != coord.y_max)
-		draw_lines(new, tmp, searchinlist(tmp, coord), 0x00FF00);
+		draw_lines(new, tmp, searchinlist(tmp, coord), 0xFF0000);
 	else if (tmp->x / ZOOM != coord.x_max && tmp->y / ZOOM  == coord.y_max)
-		draw_lines(new, tmp, searchnextinlist(tmp), 0xF0F0F0);
+		draw_lines(new, tmp, searchnextinlist(tmp), 0xFF0000);
 }
