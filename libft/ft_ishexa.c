@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_ishexa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kwiessle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 12:45:51 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 15:39:58 by kwiessle         ###   ########.fr       */
+/*   Created: 2016/04/19 15:05:46 by kwiessle          #+#    #+#             */
+/*   Updated: 2016/04/19 16:08:48 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int		ft_ishexa(char c)
 {
-	if (c > 47 && c < 58)
+	if (ft_isdigit(c) == 1)
+		return (1);
+	else if (c > 64 && c < 71)
+		return (1);
+	else if (c > 96 && c < 103)
+		return (1);
+	else if (c == 'x')
 		return (1);
 	return (0);
 }

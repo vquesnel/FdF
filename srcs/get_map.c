@@ -6,45 +6,59 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 14:30:08 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 14:06:50 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int		is_valid(char *line)
+static int		is_valid(char c)
 {
-	int			i;
-
-	i = 0;
-	while (line[i])
+	if (ft_ishexa(c) == 1)
 	{
-		if (!(ft_isdigit(line[i])))
-		{
-			if (line[i] != '\n' && line[i] != '-' && line[i] != ' ')
-				return (1);
-		}
-		i++;
+		//printf("ret ishexa :%d\n", ft_ishexa(c));
+		return (0);
 	}
-	return (0);
+	if (ft_isfdf(c) == 1)
+	{
+		//printf("ret isfdf :%d\n", ft_isfdf(c));
+		return (0);
+	}
+	return (1);
 }
 
 static t_node	*convert_map(t_node *list, char *line)
 {
 	int			y;
+	int			i;
+	int			color;
 	char		**map;
 	static int	x;
 	static int	index;
 
 	y = 0;
+	i = 0;
+	color = D_COLOR;
 	map = ft_strsplit(line, ' ');
 	while (map[y])
 	{
-		list = insert_node(list, x * ZOOM, y * ZOOM, ft_atoi(map[y]) * ZOOM , index);
+		while (map[y][i])
+		{
+			if (map[y][i] == 'x')
+			{
+				color = ft_atoi_base(&map[y][i + 1], 16);
+				break ;
+			}
+			i++;
+		}
+		list = insert_node(list, x * ZOOM, y * ZOOM, ft_atoi(map[y]) * ZOOM , index, color);
+		color = D_COLOR;
 		y++;
 		index++;
+		i = 0;
 	}
 	x++;
+	free(map);
 	return (list);
 }
 
@@ -91,17 +105,27 @@ t_node			*get_map(char *file)
 	char		*line;
 	t_node		*new;
 	int			i;
+	int			y;
 
 	i = 0;
+	y = 0;
 	new = NULL;
 	if ((fd = open(file, O_RDONLY)))
 	{
 		while (get_next_line(fd, &line))
 		{
-			if (is_valid(line) == 1)
-				ft_putstr("Invalid map.");
+			while (line[y])
+			{
+				if (is_valid(line[y]) == 1)
+				{
+					//printf("%d\n", line[y]);
+					//printf("%s\n", line);
+					//ft_putstr("invalid map\n");
+				}
+				y++;
+			}
 			new = convert_map(new, line);
-			free(line);
+		//	free(line);
 		}
 	}
 	else

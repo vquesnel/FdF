@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:07:09 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 16:20:13 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 14:36:28 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ typedef struct		s_node
 	int				z;
 	int				x_iso;
 	int				y_iso;
-	int			index;
+	int				index;
+	int				color;
 	struct s_node	*next;
 }					t_node;
 

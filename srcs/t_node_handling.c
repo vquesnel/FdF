@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:15:18 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 15:38:49 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 14:57:25 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ t_node		*init_node(void)
 	new->x_iso = 0;
 	new->y_iso = 0;
 	new->index = 0;
+	new->color = D_COLOR;
 	new->next = NULL;
 	return (new);
 }
 
-t_node		*new_node(int x, int y, int z, int i)
+t_node		*new_node(int x, int y, int z, int i, int color)
 {
 	t_node	*new;
 
@@ -36,19 +37,20 @@ t_node		*new_node(int x, int y, int z, int i)
 		return (NULL);
 	new->x = y;
 	new->y = x;
-	new->z = -z;
+	new->z = z;
 	new->x_iso = round(new->x * CTE1 - CTE2 * new->y + 400);
 	new->y_iso = round(new->z + CTE1 / 2 * new->x + CTE2 / 2 * new->y + 300);
 	new->index = i;
+	new->color = color;
 	return (new);
 }
 
-t_node		*insert_node(t_node *list, int x, int y, int z, int i)
+t_node		*insert_node(t_node *list, int x, int y, int z, int i, int color)
 {
 	t_node	*new;
 	t_node	*tmp;
 
-	if (!(new = new_node(x, y, z, i)))
+	if (!(new = new_node(x, y, z, i, color)))
 		return (NULL);
 	if (!list)
 		return (new);

@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_isfdf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kwiessle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 12:45:51 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/19 15:39:58 by kwiessle         ###   ########.fr       */
+/*   Created: 2016/04/19 15:18:12 by kwiessle          #+#    #+#             */
+/*   Updated: 2016/04/19 16:09:13 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int		ft_isfdf(char c)
 {
-	if (c > 47 && c < 58)
+	if (c == ' ')
+		return (1);
+	else if (c == '-')
+		return (1);
+	else if (c == '\n')
+		return (1);
+	else if (c == ',')
 		return (1);
 	return (0);
 }

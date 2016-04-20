@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 14:00:46 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 14:41:50 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <sys/uio.h>
 # include <fcntl.h>
 # include <sys/types.h>
-# define BUFF_SIZE 24
+# define BUFF_SIZE 100000
 # define EOL '\n'
 
 typedef struct		s_line
@@ -118,6 +118,8 @@ int				ft_isprint(int c);
 int				ft_isspace(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
+int				ft_ishexa(char c);
+int				ft_isfdf(char c);
 
 /*
 ** PRINT FUNCTIONS
@@ -131,5 +133,7 @@ void			ft_putendl(char const *str);
 void			ft_putendl_fd(char const *str, int fd);
 void			ft_putnbr(int n);
 void			ft_putnbr_fd(int n, int fd);
+
+int				ft_atoi_base(char *str, int base);
 
 #endif
