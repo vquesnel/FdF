@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 13:03:55 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 15:04:46 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 15:11:24 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int			get_ymax(t_node *cc);
 int			get_xmax(t_node *cc);
 t_mlx		*init_mlx(void);
 t_node		*searchnextinlist(t_node *list);
+int			ft_isfdf(char c);
 
 #endif

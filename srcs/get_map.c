@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 15:06:39 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 15:24:00 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static t_node	*convert_map(t_node *list, char *line)
 int				get_xmax(t_node *cc)
 {
 	int		x;
-	t_node *tmp;
+	t_node	*tmp;
 
 	x = 0;
 	tmp = cc;
@@ -81,7 +81,7 @@ int				get_xmax(t_node *cc)
 int				get_ymax(t_node *cc)
 {
 	int		y;
-	t_node *tmp;
+	t_node	*tmp;
 
 	y = 0;
 	tmp = cc;
@@ -95,7 +95,6 @@ int				get_ymax(t_node *cc)
 	}
 	return (y);
 }
-
 
 t_node			*get_map(char *file)
 {
@@ -112,14 +111,6 @@ t_node			*get_map(char *file)
 	{
 		while (get_next_line(fd, &line))
 		{
-			while (line[y])
-			{
-				if (is_valid(line[y]) == 1)
-				{
-					ft_putstr("invalid map\n");
-				}
-				y++;
-			}
 			new = convert_map(new, line);
 			free(line);
 		}
