@@ -6,24 +6,11 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 15:24:00 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 16:37:49 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-static int		is_valid(char c)
-{
-	if (ft_ishexa(c) == 1)
-	{
-		return (0);
-	}
-	if (ft_isfdf(c) == 1)
-	{
-		return (0);
-	}
-	return (1);
-}
 
 static t_node	*convert_map(t_node *list, char *line)
 {

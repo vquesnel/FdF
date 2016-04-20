@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 19:43:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 15:27:23 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 16:07:37 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ void			draw_line(t_mlx *new, t_node *start, t_coordmax coord)
 	tmp = start;
 	if (tmp->x / ZOOM != coord.x_max && tmp->y / ZOOM != coord.y_max)
 	{
-		draw_lines(new, tmp, searchnextinlist(tmp), tmp->color);
+		draw_lines(new, tmp, tmp->next, tmp->color);
 		draw_lines(new, tmp, searchinlist(tmp, coord), tmp->color);
 	}
 	else if (tmp->x / ZOOM == coord.x_max && tmp->y / ZOOM != coord.y_max)
 		draw_lines(new, tmp, searchinlist(tmp, coord), tmp->color);
 	else if (tmp->x / ZOOM != coord.x_max && tmp->y / ZOOM == coord.y_max)
-		draw_lines(new, tmp, searchnextinlist(tmp), tmp->color);
+		draw_lines(new, tmp, tmp->next, tmp->color);
 }
