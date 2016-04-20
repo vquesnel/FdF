@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 17:17:02 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 16:36:25 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/20 17:01:00 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # define CTE2 0.9
 # define X_SIZE 1000
 # define Y_SIZE 1000
-# define D_X X_SIZE / 3
-# define D_Y Y_SIZE / 3
-# define ZOOM 3
+# define D_X X_SIZE / 2
+# define D_Y Y_SIZE / 4
+# define ZOOM 15
 
 #endif
