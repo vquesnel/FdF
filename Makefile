@@ -13,7 +13,7 @@
 NAME= fdf
 
 SRCS= srcs/draw_line.c srcs/t_node_handling.c srcs/get_map.c srcs/main.c \
-		 srcs/init_mlx.c srcs/searchinlist.c srcs/ft_isfdf.c
+		 srcs/init_mlx.c srcs/searchinlist.c srcs/ft_isfdf.c srcs/tool.c \
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/

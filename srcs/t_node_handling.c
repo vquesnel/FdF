@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:15:18 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 12:03:20 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 15:03:10 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ t_coord		insert_coord(int x, int y, int z)
 {
 	t_coord	coord;
 
-	coord.x = x;
-	coord.y = y;
-	coord.z = z;
+	coord.x = x * ZOOM;
+	coord.y = y * ZOOM;
+	coord.z = z * (ZOOM / 3);
 	return (coord);
 }
 
