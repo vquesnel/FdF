@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:07:09 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 14:36:28 by kwiessle         ###   ########.fr       */
+/*   Updated: 2016/04/21 12:00:20 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ typedef struct		s_coordmax
 	int				x_max;
 	int				y_max;
 }					t_coordmax;
+
+typedef struct		s_coord
+{
+	int				x;
+	int				y;
+	int				z;
+}					t_coord;
 
 typedef struct		s_mlx
 {

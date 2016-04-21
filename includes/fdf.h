@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 13:03:55 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 10:11:29 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 12:02:23 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@
 
 t_node		*get_map(int fd);
 t_node		*init_node(void);
-t_node		*new_node(int x, int y, int z, int index, int color);
-t_node		*insert_node(t_node *list, int x, int y, int z, int index, int color);
+t_node		*new_node(t_coord coord, int index, int color);
+t_coord		insert_coord(int x, int y, int z);
+t_node		*insert_node(t_node *list, t_coord coord, int index, int color);
 void		draw_line(t_mlx *new, t_node *start, t_coordmax coord);
 int			get_ymax(t_node *cc);
 int			get_xmax(t_node *cc);

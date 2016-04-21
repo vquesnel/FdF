@@ -3,31 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwiessle <kwiessle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/08 16:06:17 by kwiessle          #+#    #+#             */
-/*   Updated: 2016/04/19 12:05:54 by kwiessle         ###   ########.fr       */
+/*   Created: 2016/03/08 16:06:17 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/21 13:26:52 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
 
-
-int		fuck(char c)
+int		hexa_to_int(char c)
 {
 	if (c > 47 && c < 59)
 		return (c - 48);
-	if (c == 'a' || c == 'A')
-		return (10);
-	if (c == 'b' || c == 'B')
-		return (11);
-	if (c == 'c' || c == 'C')
-		return (12);
-	if (c == 'd' || c == 'D')
-		return (13);
-	if (c == 'e' || c == 'E')
-		return (14);
-	if (c == 'f' || c == 'F')
-		return (15);
+	if (c > 96 && c < 103)
+		return (c - 87);
+	if (c > 64 && c < 71)
+		return (c - 55);
 	return (-1);
 }
 
@@ -52,7 +45,7 @@ int		max_power(char *str, int base)
 	result = 1;
 	while (n > 0)
 	{
-		result  = result * base;
+		result = result * base;
 		n--;
 	}
 	return (result);
@@ -76,10 +69,9 @@ int		ft_atoi_base(char *str, int base)
 	power = max_power(str, base);
 	while (str[i])
 	{
-		toi = toi + (fuck(str[i]) * power);
+		toi = toi + (hexa_to_int(str[i]) * power);
 		power = power / base;
 		i++;
 	}
-	return (verif *toi);
+	return (verif * toi);
 }
-

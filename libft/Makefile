@@ -6,7 +6,7 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/19 17:36:29 by vquesnel          #+#    #+#              #
-#    Updated: 2016/04/20 15:10:42 by vquesnel         ###   ########.fr        #
+#    Updated: 2016/04/21 12:20:59 by vquesnel         ###   ########.fr        #
 #   Updated: 2016/03/28 13:29:25 by vquesnel         ###   ########.fr         #
 #                                                                              #
 # **************************************************************************** #
@@ -78,7 +78,7 @@ SRC =ft_atoi.c \
 	 ft_strjoinfrees2.c \
 	 ft_strcpylimit.c \
 	 ft_atoi_base.c \
-	 ft_ishexa.c \
+	 ft_error.c
 
 
 HEADER = ./includes
