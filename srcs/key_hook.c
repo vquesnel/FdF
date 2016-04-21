@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:35 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/09 17:08:37 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 16:17:16 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		key_funct(int keycode, void *param)
 {
-	param = param;
+	(void)param;
 	printf("key event %d\n", keycode);
 	return (0);
 }

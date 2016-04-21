@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:30:20 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 15:02:22 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 15:53:32 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 # define Y_SIZE 1000
 # define D_X X_SIZE / 3
 # define D_Y Y_SIZE / 3
-# define ZOOM 25
+# define ZOOM 2
 
 #endif

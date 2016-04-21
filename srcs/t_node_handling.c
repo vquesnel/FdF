@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:15:18 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 15:03:10 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 16:18:44 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ t_node		*init_node(void)
 	new->color = D_COLOR;
 	new->next = NULL;
 	return (new);
+}
+
+t_coordmax	init_coordmax(t_node *list)
+{
+	t_coordmax	coord;
+
+	coord.x_max = get_xmax(list);
+	coord.y_max = get_ymax(list);
+	return (coord);
 }
 
 t_node		*new_node(t_coord coord, int i, int color)
