@@ -6,19 +6,19 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:15:18 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 16:18:44 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 17:40:50 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_coord		insert_coord(int x, int y, int z)
+t_coord		insert_coord(int x, int y, int z, t_mlx *new)
 {
 	t_coord	coord;
 
-	coord.x = x * ZOOM;
-	coord.y = y * ZOOM;
-	coord.z = z * (ZOOM / 3);
+	coord.x = x * new->zoom;
+	coord.y = y * new->zoom;
+	coord.z = z * (new->zoom/ 3);
 	return (coord);
 }
 

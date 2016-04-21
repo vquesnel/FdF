@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 14:59:57 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 17:45:02 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int		get_color(char *map)
 	return (color);
 }
 
-static t_node	*convert_map(t_node *list, char *line)
+static t_node	*convert_map(t_node *list, char *line, t_mlx *new)
 {
 	int			y;
 	char		**map;
@@ -43,7 +43,7 @@ static t_node	*convert_map(t_node *list, char *line)
 	map = ft_strsplit(line, ' ');
 	while (map[y])
 	{
-		coord = insert_coord(x, y, ft_atoi(map[y]));
+		coord = insert_coord(x, y, ft_atoi(map[y]), new);
 		list = insert_node(list, coord, index, get_color(map[y]));
 		y++;
 		index++;
@@ -89,7 +89,7 @@ int				get_ymax(t_node *cc)
 	return (y);
 }
 
-t_node			*get_map(int fd)
+t_node			*get_map(int fd, t_mlx *mlx)
 {
 	char		*line;
 	t_node		*new;
@@ -101,7 +101,7 @@ t_node			*get_map(int fd)
 	new = NULL;
 	while (get_next_line(fd, &line))
 	{
-		new = convert_map(new, line);
+		new = convert_map(new, line, mlx);
 		free(line);
 	}
 	return (new);

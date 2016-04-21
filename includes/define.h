@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:30:20 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 15:53:32 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 17:42:53 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,12 @@
 # define D_X X_SIZE / 3
 # define D_Y Y_SIZE / 3
 # define ZOOM 2
+# define CLOSE 53
+# define L_ROTATION 123
+# define R_ROTATION 124
+# define D_ROTATION 125
+# define U_ROTATION 126
+# define U_ZOOM 1
+# define D_ZOOM 2
 
 #endif
