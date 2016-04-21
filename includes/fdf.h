@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 13:03:55 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 16:08:40 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 10:11:29 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdio.h>
 # include <math.h>
 
-t_node		*get_map(char *file);
+t_node		*get_map(int fd);
 t_node		*init_node(void);
 t_node		*new_node(int x, int y, int z, int index, int color);
 t_node		*insert_node(t_node *list, int x, int y, int z, int index, int color);
@@ -31,5 +31,6 @@ int			get_xmax(t_node *cc);
 t_mlx		*init_mlx(void);
 t_node		*searchinlist(t_node *list, t_coordmax coord);
 int			ft_isfdf(char c);
+void		ft_error(void);
 
 #endif

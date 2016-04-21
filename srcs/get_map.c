@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/20 16:37:49 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 10:12:25 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,8 @@ int				get_ymax(t_node *cc)
 	return (y);
 }
 
-t_node			*get_map(char *file)
+t_node			*get_map(int fd)
 {
-	int			fd;
 	char		*line;
 	t_node		*new;
 	int			i;
@@ -94,15 +93,10 @@ t_node			*get_map(char *file)
 	i = 0;
 	y = 0;
 	new = NULL;
-	if ((fd = open(file, O_RDONLY)))
+	while (get_next_line(fd, &line))
 	{
-		while (get_next_line(fd, &line))
-		{
-			new = convert_map(new, line);
-			free(line);
-		}
+		new = convert_map(new, line);
+		free(line);
 	}
-	else
-		ft_putstr("Can't open the map file.");
 	return (new);
 }

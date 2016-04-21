@@ -1,25 +1,19 @@
-/* *************************************************************************e */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/09 17:17:02 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 10:45:27 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/21 10:06:43 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/21 10:16:06 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#include "fdf.h"
 
-# define D_COLOR 0xFFFFFF
-# define CTE1 0.9
-# define CTE2 0.9
-# define X_SIZE 1000
-# define Y_SIZE 1000
-# define D_X X_SIZE / 3
-# define D_Y Y_SIZE / 3
-# define ZOOM 25
-
-#endif
+void	ft_error(void)
+{
+	ft_putstr("error\n");
+	exit(EXIT_FAILURE);
+}
