@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:15:18 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 14:32:02 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 14:40:26 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ t_node		*init_node(void)
 	new->next = NULL;
 	return (new);
 }
-
-
 
 t_node		*new_node(t_coord coord, int i, int color)
 {

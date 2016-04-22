@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 14:33:29 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 14:46:36 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,11 @@ t_node			*get_map(int fd, t_mlx *mlx)
 	new = NULL;
 	if (get_next_line(fd, &line))
 	{
-		new = convert_map(new, line, mlx);
 		x = ft_tablen(ft_strsplit(line, ' '));
+		new = convert_map(new, line, mlx);
 	}
+	else
+		ft_error();
 	while (get_next_line(fd, &line))
 	{
 		if (ft_tablen(ft_strsplit(line, ' ')) != x)

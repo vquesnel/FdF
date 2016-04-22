@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:30:20 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 14:36:35 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 14:42:03 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define ZOOM 25
 
 /*
-* * KEY_EVENT
+** KEY EVENTS
 */
 
 # define CLOSE 53
@@ -32,14 +32,14 @@
 # define U_ROTATION 126
 
 /*
-* * MOUSE_EVENT
+** MOUSE EVENTS
 */
 
 # define U_ZOOM 1
 # define D_ZOOM 2
 
 /*
-* * COLORS
+** COLORS
 */
 
 # define D_COLOR 0xFFFFFF

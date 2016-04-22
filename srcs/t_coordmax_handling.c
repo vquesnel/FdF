@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 14:31:19 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 14:31:46 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 14:40:44 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int				get_ymax(t_node *cc)
 	return (y);
 }
 
-t_coordmax	init_coordmax(t_node *list)
+t_coordmax		init_coordmax(t_node *list)
 {
 	t_coordmax	coord;
 
