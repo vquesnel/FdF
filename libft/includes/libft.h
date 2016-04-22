@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 13:28:31 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 13:18:35 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t len);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
+void				print_memory(const void *addr, size_t size);
 
 /*
 ** STRING HANDLING
@@ -98,6 +99,8 @@ int					ft_abs(int c);
 int					ft_clear_tab(char **tab);
 char				*ft_strcpylimit(char *str, char n);
 char				*ft_strjoinfrees2(char *s1, char *s2);
+char				*ft_strnewzero(size_t size);
+int					ft_tablen(char **tab);
 
 /*
 ** MATHS
@@ -106,6 +109,7 @@ char				*ft_strjoinfrees2(char *s1, char *s2);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 int					ft_atoi_base(const char *str, int base);
+char				*ft_itoa_base(int value, int base);
 
 /*
 ** TESTS
@@ -133,5 +137,6 @@ void				ft_putendl(char const *str);
 void				ft_putendl_fd(char const *str, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
+void				print_hex(int nb);
 
 #endif
