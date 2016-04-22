@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 13:03:55 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 11:31:45 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 14:26:09 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_coordmax	init_coordmax(t_node *cc);
 t_node		*searchinlist(t_node *list, t_coordmax coord);
 int			ft_isfdf(char c);
 void		ft_error(void);
-int			key_funct(int keycode, t_mlx *new);
-void		fdf(t_mlx *new);
+int			key_funct(int keycode, t_mlx *new, t_node *list);
+void		fdf(t_mlx *new, t_node *list);
 
 #endif
