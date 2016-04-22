@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:07:09 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 17:40:15 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 10:51:45 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct		s_mlx
 {
 	void			*mlx;
 	void			*win;
+	int				fd;
 	int				zoom;
 }					t_mlx;
 

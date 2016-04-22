@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:15:18 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 17:40:50 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 11:21:30 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_coord		insert_coord(int x, int y, int z, t_mlx *new)
 
 	coord.x = x * new->zoom;
 	coord.y = y * new->zoom;
-	coord.z = z * (new->zoom/ 3);
+	coord.z = z * (new->zoom / 3);
 	return (coord);
 }
 
@@ -57,8 +57,8 @@ t_node		*new_node(t_coord coord, int i, int color)
 	new->x = coord.y;
 	new->y = coord.x;
 	new->z = -coord.z;
-	new->x_iso = round(new->x * CTE1 - CTE2 * new->y + D_X);
-	new->y_iso = round(new->z + CTE1 / 2 * new->x + CTE2 / 2 * new->y + D_X);
+	new->x_iso = (new->x * CTE1 - CTE2 * new->y + D_X);
+	new->y_iso = (new->z + CTE1 / 2 * new->x + CTE2 / 2 * new->y + D_X);
 	new->index = i;
 	new->color = color;
 	return (new);

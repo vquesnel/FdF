@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 15:06:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 15:11:06 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 11:29:26 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void		draw_vertical(t_mlx *new, t_node *start, t_node *end)
 
 static void		draw_color(t_mlx *new, t_node *b, t_node *end, t_coordmax c)
 {
-	if (b->color == D_COLOR)
+	if (b->color == WHITE)
 		mlx_pixel_put(new->mlx, new->win, c.x_max, c.y_max, end->color);
 	else
 		mlx_pixel_put(new->mlx, new->win, c.x_max, c.y_max, b->color);
