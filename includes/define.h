@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:30:20 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 11:29:28 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 11:49:12 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@
 # define R_ROTATION 124
 # define D_ROTATION 125
 # define U_ROTATION 126
+
+/*
+* * MOUSE_EVENT
+*/
+
 # define U_ZOOM 1
 # define D_ZOOM 2
 
