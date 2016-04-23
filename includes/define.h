@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:30:20 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/23 11:11:14 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/23 13:55:07 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define R_ROTATION 124
 # define D_ROTATION 125
 # define U_ROTATION 126
+# define SPACE 49
 
 /*
 ** MOUSE EVENTS

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/07 12:24:26 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/23 11:51:38 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/23 14:25:48 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/23 14:25:50 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			main(int ac, char **av)
 	if ((fd = open(av[1], O_RDONLY)) < 0)
 		ft_error();
 	new = init_mlx(av[1]);
-	tmp = get_map(new->fd, new);
+	tmp = get_map(fd, new);
 	coord = init_coordmax(tmp, new);
 	fdf(new, tmp, coord);
 	mlx_key_hook(new->win, key_funct, new);
