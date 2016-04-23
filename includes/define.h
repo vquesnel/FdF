@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:30:20 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 15:15:45 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/23 11:11:14 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 ** MOUSE EVENTS
 */
 
-# define U_ZOOM 1
-# define D_ZOOM 2
+# define U_ZOOM 5
+# define D_ZOOM 4
 
 /*
 ** COLORS

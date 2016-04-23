@@ -6,19 +6,17 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 12:24:26 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 14:25:29 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/23 11:51:38 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		fdf(t_mlx *new, t_node *list)
+void		fdf(t_mlx *new, t_node *list, t_coordmax coord)
 {
 	t_node		*tmp;
-	t_coordmax	coord;
 
 	tmp = list;
-	coord = init_coordmax(tmp);
 	while (tmp)
 	{
 		draw_line(new, tmp, coord);
@@ -31,6 +29,7 @@ int			main(int ac, char **av)
 	t_mlx		*new;
 	int			fd;
 	t_node		*tmp;
+	t_coordmax	coord;
 
 	if (ac != 2)
 	{
@@ -41,10 +40,11 @@ int			main(int ac, char **av)
 	if ((fd = open(av[1], O_RDONLY)) < 0)
 		ft_error();
 	new = init_mlx(av[1]);
-	tmp = get_map(fd, new);
-	fdf(new, tmp);
+	tmp = get_map(new->fd, new);
+	coord = init_coordmax(tmp, new);
+	fdf(new, tmp, coord);
 	mlx_key_hook(new->win, key_funct, new);
-//	mlx_mouse_hook(new->win, key_funct, new);
+	mlx_mouse_hook(new->win, mouse_funct, new);
 	mlx_loop(new->mlx);
 	return (0);
 }

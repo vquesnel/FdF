@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 13:03:55 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 15:20:33 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/23 11:51:34 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,15 @@ t_coord		insert_coord(int x, int y, int z, t_mlx *new);
 t_node		*insert_node(t_node *list, t_coord coord, int index, int color);
 void		draw_line(t_mlx *new, t_node *start, t_coordmax coord);
 void		draw_lines(t_mlx *new, t_node *start, t_node *end);
-int			get_ymax(t_node *cc);
-int			get_xmax(t_node *cc);
+int			get_ymax(t_node *cc, t_mlx *new);
+int			get_xmax(t_node *cc, t_mlx *new);
 t_mlx		*init_mlx(char *text);
-t_coordmax	init_coordmax(t_node *cc);
+t_coordmax	init_coordmax(t_node *cc, t_mlx *new);
 t_node		*searchinlist(t_node *list, t_coordmax coord);
 int			ft_isfdf(char c);
 void		ft_error(void);
-int			key_funct(int keycode, t_mlx *new, t_node *list);
-void		fdf(t_mlx *new, t_node *list);
+int			key_funct(int keycode, t_mlx *new);
+int			mouse_funct(int code, t_mlx *new, t_node *list, t_coordmax coord, t_coord cc);
+void		fdf(t_mlx *new, t_node *tmp, t_coordmax cord);
 
 #endif
