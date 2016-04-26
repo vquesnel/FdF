@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:35 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/23 14:27:12 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/25 14:21:53 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,18 @@ int		key_funct(int keycode, t_mlx *new)
 
 int		mouse_funct(int mousecode, t_mlx *new, t_node *list, t_coordmax coord, t_coord cc)
 {
+	int		c;
+
+	c = new->zoom;
 	(void)list;
 	(void)cc;
 	(void)coord;
 	if (new == NULL)
 		return (0);
-	if (mousecode == U_ZOOM || mousecode == D_ZOOM)
+	if (mousecode == U_ZOOM)
 	{
-		list = NULL;
-		list = insert_node(list, cc, 0, 0);
-		new->zoom += (mousecode == U_ZOOM) ? 1 : 0;
-		new->zoom -= (mousecode == D_ZOOM) ? 1 : 0;
-		mlx_clear_window(new->mlx, new->win);
-		fdf(new, list, coord);
+		new->zoom = 0;
+		printf("zoom == %d\n", new->zoom);
 	}
 	return (0);
 }

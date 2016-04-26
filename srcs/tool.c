@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 15:06:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 11:29:26 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/26 13:14:02 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void		affine(t_mlx *new, t_node *start, t_node *end, t_coef coef)
 		color.y_max = coef.coef * color.x_max + coef.cons;
 		if (color.y_max > coef.coef * (color.x_max + 1) + coef.cons)
 		{
-			while (color.y_max > coef.coef * (color.x_max + 1) + coef.cons)
+			while (color.y_max >= coef.coef * (color.x_max + 1) + coef.cons)
 			{
 				draw_color(new, start, end, color);
 				color.y_max--;
@@ -55,7 +55,7 @@ static void		affine(t_mlx *new, t_node *start, t_node *end, t_coef coef)
 		}
 		else
 		{
-			while (color.y_max < coef.coef * (color.x_max + 1) + coef.cons)
+			while (color.y_max <= coef.coef * (color.x_max + 1) + coef.cons)
 			{
 				draw_color(new, start, end, color);
 				color.y_max++;
