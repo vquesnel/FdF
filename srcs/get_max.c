@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_coordmax_handling.c                              :+:      :+:    :+:   */
+/*   get_max.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/22 14:31:19 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/23 14:27:27 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/26 15:00:47 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/27 12:03:43 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int				get_xmax(t_node *cc, t_mlx *new)
+int				get_xmax(t_node *node)
 {
 	int		x;
 	t_node	*tmp;
 
 	x = 0;
-	tmp = cc;
+	tmp = node;
 	while (tmp->next)
 	{
 		if (tmp->x < tmp->next->x)
-			x = tmp->next->x / new->zoom;
+			x = tmp->next->x;
 		else
 			break ;
 		tmp = tmp->next;
@@ -30,17 +30,17 @@ int				get_xmax(t_node *cc, t_mlx *new)
 	return (x);
 }
 
-int				get_ymax(t_node *cc, t_mlx *new)
+int				get_ymax(t_node *node)
 {
 	int		y;
 	t_node	*tmp;
 
 	y = 0;
-	tmp = cc;
+	tmp = node;
 	while (tmp->next)
 	{
 		if (tmp->y <= tmp->next->y)
-			y = tmp->next->y / new->zoom;
+			y = tmp->next->y;
 		else
 			break ;
 		tmp = tmp->next;
@@ -48,11 +48,33 @@ int				get_ymax(t_node *cc, t_mlx *new)
 	return (y);
 }
 
-t_coordmax		init_coordmax(t_node *list, t_mlx *new)
+int				get_xsize_max(t_proj *proj)
 {
-	t_coordmax	coord;
+	int		x;
+	t_proj	*tmp;
 
-	coord.x_max = get_xmax(list, new);
-	coord.y_max = get_ymax(list, new);
-	return (coord);
+	tmp = proj;
+	x = tmp->x_iso;
+	while (tmp->next)
+	{
+		x = (x < tmp->next->x_iso) ? tmp->next->x_iso : x;
+		tmp = tmp->next;
+	}
+	return (x);
+}
+
+int				get_ysize_max(t_proj *proj)
+{
+	int		y;
+	t_proj	*tmp;
+
+	y = 0;
+	tmp = proj;
+	while (tmp->next)
+	{
+		if (y < tmp->next->y_iso)
+			y = tmp->next->y_iso;
+		tmp = tmp->next;
+	}
+	return (y);
 }

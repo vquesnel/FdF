@@ -5,16 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/03/24 13:03:29 by vquesnel          #+#    #+#              #
-#    Updated: 2016/04/23 14:11:33 by vquesnel         ###   ########.fr        #
+#    Created: 2016/04/26 13:35:37 by vquesnel          #+#    #+#              #
+#*   Updated: 2016/04/26 18:47:43 by vquesnel         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 NAME= fdf
 
-SRCS= srcs/draw_line.c srcs/t_node_handling.c srcs/get_map.c srcs/main.c \
-		 srcs/init_mlx.c srcs/searchinlist.c srcs/ft_isfdf.c srcs/tool.c \
-		 srcs/key_hook.c srcs/t_coordmax_handling.c
+SRCS= srcs/main.c srcs/draw_affine.c srcs/draw_line.c srcs/draw_vertical.c \
+	 srcs/get_map.c srcs/get_max.c srcs/init_coord.c srcs/init_env.c \
+	 srcs/init_mlx.c srcs/init_param.c srcs/init_proj.c srcs/searchinlist.c \
+	 srcs/init_node.c srcs/key_hook.c srcs/get_min.c
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/
@@ -27,14 +28,14 @@ $(NAME):	$(OBJS)
 	@make -C mlx/
 	@gcc -o $(NAME) $(OBJS) $(LIBS) $(FRAMEWORK)
 	@echo "\n"
-	@echo "\033[32;1m███████╗██████╗ ███████╗    ██╗███████╗    ██████╗ ███████╗ █████╗ ██████╗ ██╗   ██╗    \033[0m"
-	@echo "\033[32;1m██╔════╝██╔══██╗██╔════╝    ██║██╔════╝    ██╔══██╗██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝    \033[0m"
-	@echo "\033[32;1m█████╗  ██║  ██║█████╗      ██║███████╗    ██████╔╝█████╗  ███████║██║  ██║ ╚████╔╝     \033[0m"
-	@echo "\033[32;1m██╔══╝  ██║  ██║██╔══╝      ██║╚════██║    ██╔══██╗██╔══╝  ██╔══██║██║  ██║  ╚██╔╝      \033[0m"
-	@echo "\033[32;1m██║     ██████╔╝██║         ██║███████║    ██║  ██║███████╗██║  ██║██████╔╝   ██║       \033[0m"
-	@echo "\033[32;1m╚═╝     ╚═════╝ ╚═╝         ╚═╝╚══════╝    ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝       \033[0m"
+	@echo "\033[34;1m███████╗██████╗ ███████╗    ██╗███████╗    ██████╗ ███████╗ █████╗ ██████╗ ██╗   ██╗    \033[0m"
+	@echo "\033[34;1m██╔════╝██╔══██╗██╔════╝    ██║██╔════╝    ██╔══██╗██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝    \033[0m"
+	@echo "\033[37;1m█████╗  ██║  ██║█████╗      ██║███████╗    ██████╔╝█████╗  ███████║██║  ██║ ╚████╔╝     \033[0m"
+	@echo "\033[37;1m██╔══╝  ██║  ██║██╔══╝      ██║╚════██║    ██╔══██╗██╔══╝  ██╔══██║██║  ██║  ╚██╔╝      \033[0m"
+	@echo "\033[31;1m██║     ██████╔╝██║         ██║███████║    ██║  ██║███████╗██║  ██║██████╔╝   ██║       \033[0m"
+	@echo "\033[31;1m╚═╝     ╚═════╝ ╚═╝         ╚═╝╚══════╝    ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝       \033[0m"
 	@echo "\n"
-	@echo "\033[32;1m Vquesnel									2016\033[0m"
+	@echo "\033[34;1m Vquesnel									2016\033[0m"
 
 
 $(OBJS): %.o: %.c
@@ -56,3 +57,4 @@ fclean:	clean
 re:		fclean all
 
 .PHONY: all clean fclean re
+

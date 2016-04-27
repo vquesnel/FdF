@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isfdf.c                                         :+:      :+:    :+:   */
+/*   init_coord.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/19 15:18:12 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 13:37:30 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/26 14:41:36 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/26 17:31:17 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fdf.h"
 
-int		ft_isfdf(char c)
+t_coord		init_coord(int x, int y, int z)
 {
-	if (c == ' ')
-		return (1);
-	else if (c == '-')
-		return (1);
-	else if (c == '\n')
-		return (1);
-	else if (c == ',')
-		return (1);
-	return (0);
+	t_coord	coord;
+
+	coord.x = x;
+	coord.y = y;
+	coord.z = z;
+	return (coord);
 }

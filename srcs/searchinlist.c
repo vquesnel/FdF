@@ -3,25 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   searchinlist.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/14 15:17:31 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 14:30:53 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/26 15:34:51 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/27 12:04:02 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_node		*searchinlist(t_node *list, t_coordmax coord)
+t_proj		*searchinlist(t_proj *proj, t_param *param)
 {
-	t_node	*tmp;
+	int		x;
+	t_proj	*tmp;
 
-	tmp = list;
-	while (tmp)
+	tmp = proj;
+	x = param->x_max + 1;
+	while (x)
 	{
-		if (tmp->index == list->index + coord.x_max + 1)
-			return (tmp);
 		tmp = tmp->next;
+		x--;
 	}
-	return (NULL);
+	return (tmp);
 }

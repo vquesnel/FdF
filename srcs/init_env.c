@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   init_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/26 14:54:46 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 12:42:13 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/26 15:03:50 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/27 16:32:27 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_mlx		*init_mlx(int fd)
+t_env	*init_env(void)
 {
-	t_mlx	*mlx;
+	t_env	*env;
 
-	if (!(mlx = (t_mlx *)malloc(sizeof(t_mlx))))
+	if (!(env = (t_env *)malloc(sizeof(t_env))))
 		return (NULL);
-	mlx->mlx = mlx_init();
-	mlx->win = mlx_new_window(mlx->mlx, 1000, 1000, \
-			"Vquesnel's FDF");
-	mlx->fd = fd;
-	if (!mlx->mlx || !mlx->win)
+	env->map = NULL;
+	env->proj = NULL;
+	env->param = NULL;
+	env->mlx = NULL;
+	return (env);
+}
+
+t_env	*insert_env(int fd)
+{
+	t_env	*env;
+
+	if (!(env = init_env()))
 		return (NULL);
-	return (mlx);
+	env->map = get_map(fd);
+	env->param = init_param(env->map, 2, 500, 500);
+	env->proj = insert_proj(env->map, env->param);
+	env->mlx = init_mlx(fd);
+//	env->next = NULL;
+	return (env);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/07 12:09:44 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/23 10:21:15 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/26 14:38:46 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/27 12:05:15 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int		get_color(char *map)
 	return (color);
 }
 
-static t_node	*convert_map(t_node *list, char *line, t_mlx *new)
+static t_node	*convert_map(t_node *list, char *line)
 {
 	int			y;
 	char		**map;
@@ -43,8 +43,8 @@ static t_node	*convert_map(t_node *list, char *line, t_mlx *new)
 	map = ft_strsplit(line, ' ');
 	while (map[y])
 	{
-		coord = insert_coord(x, y, ft_atoi(map[y]), new);
-		list = insert_node(list, coord, index, get_color(map[y]));
+		coord = init_coord(x, y, ft_atoi(map[y]));
+		list = insert_node(list, coord, get_color(map[y]));
 		y++;
 		index++;
 	}
@@ -53,21 +53,17 @@ static t_node	*convert_map(t_node *list, char *line, t_mlx *new)
 	return (list);
 }
 
-t_node			*get_map(int fd, t_mlx *mlx)
+t_node			*get_map(int fd)
 {
 	char		*line;
 	t_node		*new;
-	int			i;
-	int			y;
 	static int	x;
 
-	i = 0;
-	y = 0;
 	new = NULL;
 	if (get_next_line(fd, &line))
 	{
 		x = ft_tablen(ft_strsplit(line, ' '));
-		new = convert_map(new, line, mlx);
+		new = convert_map(new, line);
 	}
 	else
 		ft_error();
@@ -75,7 +71,7 @@ t_node			*get_map(int fd, t_mlx *mlx)
 	{
 		if (ft_tablen(ft_strsplit(line, ' ')) != x)
 			ft_error();
-		new = convert_map(new, line, mlx);
+		new = convert_map(new, line);
 	}
 	return (new);
 }
