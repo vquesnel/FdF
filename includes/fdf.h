@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:39:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 21:08:14 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/27 23:52:34 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int			fdf(t_env *env);
 t_proj		*searchinlist(t_proj *proj, t_param *param);
 int			key_funct(int keycode, t_env *env);
 int			mouse_funct(int mousecode, t_env *env);
+int			menu(t_env *env);
 
 #endif

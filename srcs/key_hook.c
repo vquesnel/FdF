@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:35 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 21:11:12 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/27 23:54:46 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,7 @@ int		key_funct(int keycode, t_env *env)
 	if (keycode == CLOSE)
 		exit(EXIT_SUCCESS);
 	if (keycode == SPACE && check == 0)
-	{
-		win2 = mlx_new_window(env->mlx->mlx, 300, 120, "Menu");
-		mlx_string_put(env->mlx->mlx, win2, 5, 5, 0xFFFFFF, "FDF Menu :");
-		mlx_string_put(env->mlx->mlx, win2, 5, 20, 0xFFFFFF, "-Echap = esc");
-		mlx_string_put(env->mlx->mlx, win2, 5, 35, 0xFFFFFF, "-Zoom = +/-");
-		mlx_string_put(env->mlx->mlx, win2, 5, 50, 0xFFFFFF, "-Move = arrows");
-		mlx_string_put(env->mlx->mlx, win2, 5, 65, 0xFFFFFF, "-projection = i/p");
-		mlx_loop(env->mlx->mlx);
-		check++;
-	}
+		menu(env);
 	if (keycode == SPACE && check)
 		mlx_destroy_window(env->mlx->mlx, win2);
 	if (keycode == 24)
