@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:39:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 20:44:02 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/27 21:08:14 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ void		draw_vertical(t_env *env, t_proj *start, t_proj *end);
 t_node		*get_map(int fd);
 int			get_xmax(t_node *node);
 int			get_ymax(t_node *node);
-int			get_xsize_max(t_proj *proj);
-int			get_xsize_min(t_proj *proj);
-int			get_ysize_max(t_proj *proj);
-int			get_ysize_min(t_proj *proj);
 t_coord		init_coord(int x, int y, int z);
 t_env		*init_env(void);
 t_env		*insert_env(int fd);

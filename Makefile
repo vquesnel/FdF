@@ -6,7 +6,7 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/26 13:35:37 by vquesnel          #+#    #+#              #
-#*   Updated: 2016/04/26 18:47:43 by vquesnel         ###   ########.fr       *#
+#*   Updated: 2016/04/27 21:07:45 by vquesnel         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME= fdf
 SRCS= srcs/main.c srcs/draw_affine.c srcs/draw_line.c srcs/draw_vertical.c \
 	 srcs/get_map.c srcs/get_max.c srcs/init_coord.c srcs/init_env.c \
 	 srcs/init_mlx.c srcs/init_param.c srcs/init_proj.c srcs/searchinlist.c \
-	 srcs/init_node.c srcs/key_hook.c srcs/get_min.c
+	 srcs/init_node.c srcs/key_hook.c
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/
