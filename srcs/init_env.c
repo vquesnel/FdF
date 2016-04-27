@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:03:50 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 16:32:27 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/27 20:44:19 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_env	*insert_env(int fd)
 		return (NULL);
 	env->map = get_map(fd);
 	env->param = init_param(env->map, 2, 500, 500);
-	env->proj = insert_proj(env->map, env->param);
+	env->proj = init_iso(env->map, env->param);
 	env->mlx = init_mlx(fd);
 //	env->next = NULL;
 	return (env);

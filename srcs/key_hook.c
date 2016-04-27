@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:35 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 17:26:23 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/27 21:04:01 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		key_funct(int keycode, t_env *env)
 	static int		check;
 
 	win2 = NULL;
-	printf("check == %d\n", check);
 	x = env->param->zoom;
 	i = env->param->xdefault;
 	j = env->param->ydefault;
@@ -48,7 +47,10 @@ int		key_funct(int keycode, t_env *env)
 		ft_memdel((void **)&env->param);
 		ft_memdel((void **)&env->proj);
 		env->param = init_param(env->map, x, i, j);
-		env->proj = insert_proj(env->map, env->param);
+		if (env->mlx->proj == 1)
+				env->proj = init_para(env->map, env->param);
+		else
+				env->proj = init_iso(env->map, env->param);
 		fdf(env);
 	}
 	if (keycode == 27)
@@ -60,7 +62,10 @@ int		key_funct(int keycode, t_env *env)
 			ft_memdel((void **)&env->param);
 			ft_memdel((void **)&env->proj);
 			env->param = init_param(env->map, x, i, j);
-			env->proj = insert_proj(env->map, env->param);
+			if (env->mlx->proj == 1)
+				env->proj = init_para(env->map, env->param);
+			else
+				env->proj = init_iso(env->map, env->param);
 		}
 		fdf(env);
 	}
@@ -71,27 +76,58 @@ int		key_funct(int keycode, t_env *env)
 		ft_memdel((void **)&env->proj);
 		if (keycode == 123)
 		{
-			i -= 20;
+			i -= 100;
 			env->param = init_param(env->map, x, i, j);
-			env->proj = insert_proj(env->map, env->param);
+			if (env->mlx->proj == 1)
+				env->proj = init_para(env->map, env->param);
+			else
+				env->proj = init_iso(env->map, env->param);
 		}
 		if (keycode == 124)
 		{
-			i += 20;
+			i += 100;
 			env->param = init_param(env->map, x, i, j);
-			env->proj = insert_proj(env->map, env->param);
+			if (env->mlx->proj == 1)
+				env->proj = init_para(env->map, env->param);
+			else
+				env->proj = init_iso(env->map, env->param);
 		}
 		if (keycode == 126)
 		{
-			j -= 20;
+			j -= 100;
 			env->param = init_param(env->map, x, i, j);
-			env->proj = insert_proj(env->map, env->param);
+			if (env->mlx->proj == 1)
+				env->proj = init_para(env->map, env->param);
+			else
+				env->proj = init_iso(env->map, env->param);
 		}
 		if (keycode == 125)
 		{
-			j += 20;
+			j += 100;
 			env->param = init_param(env->map, x, i, j);
-			env->proj = insert_proj(env->map, env->param);
+			if (env->mlx->proj == 1)
+				env->proj = init_para(env->map, env->param);
+			else
+				env->proj = init_iso(env->map, env->param);
+		}
+		fdf(env);
+	}
+	if (keycode == 34 || keycode == 35)
+	{
+		mlx_clear_window(env->mlx->mlx, env->mlx->win);
+		ft_memdel((void **)&env->param);
+		ft_memdel((void **)&env->proj);
+		if (keycode == 34)
+		{
+			env->param = init_param(env->map, x, i, j);
+			env->proj = init_iso(env->map, env->param);
+			env->mlx->proj = 0;
+		}
+		if (keycode == 35)
+		{
+			env->param = init_param(env->map, x, i, j);
+			env->proj = init_para(env->map, env->param);
+			env->mlx->proj = 1;
 		}
 		fdf(env);
 	}

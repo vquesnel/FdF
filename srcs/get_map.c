@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:38:46 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 17:19:05 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/27 18:11:54 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@ static int		get_color(char *map)
 
 static t_node	*convert_map(t_node *list, char *line)
 {
-	int			x;
+	int			y;
 	char		**map;
-	static int	y;
+	static int	x;
 	t_coord		coord;
 
-	x = 0;
+	y = 0;
 	map = ft_strsplit(line, ' ');
-	while (map[x])
+	while (map[y])
 	{
-		coord = init_coord(y, x, ft_atoi(map[y]));
+		coord = init_coord(x, y, ft_atoi(map[y]));
 		list = insert_node(list, coord, get_color(map[y]));
-		x++;
+		y++;
 	}
-	y++;
+	x++;
 	free(map);
 	return (list);
 }

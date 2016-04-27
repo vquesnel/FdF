@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:30:45 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 16:29:30 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/27 20:59:37 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ typedef struct		s_proj
 	int				z;
 	int				x_iso;
 	int				y_iso;
-	int				x_para;
-	int				y_para;
 	int				color;
 	struct s_proj	*next;
 }					t_proj;
@@ -55,6 +53,7 @@ typedef struct		s_mlx
 	void			*mlx;
 	void			*win;
 	int				fd;
+	int				proj;
 }					t_mlx;
 
 typedef struct		s_param
