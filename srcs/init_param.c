@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:56:45 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 16:32:11 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/27 21:06:14 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ t_param		*init_param(t_node *node, int zoom, int xdefault, int ydefault)
 	param->zoom = zoom;
 	param->xdefault = xdefault;
 	param->ydefault = ydefault;
-	param->proj = 0;
 	return (param);
 }

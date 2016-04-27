@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:30:45 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 20:59:37 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/27 21:06:04 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ typedef struct		s_param
 	int				zoom;
 	int				xdefault;
 	int				ydefault;
-	int				proj;
 }					t_param;
 
 typedef struct		s_env
