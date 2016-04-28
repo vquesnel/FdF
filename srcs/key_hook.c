@@ -6,13 +6,13 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:12 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 16:38:20 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 17:38:52 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static	void	zoom(t_env *env, int keycode, t_node coord)
+static void		zoom(t_env *env, int keycode, t_node coord)
 {
 	ft_memdel((void **)&env->param);
 	ft_memdel((void **)&env->proj);
@@ -84,6 +84,7 @@ int				key_funct(int keycode, t_env *env)
 	hook.x = env->param->zoom;
 	hook.y = env->param->xdefault;
 	hook.z = env->param->ydefault;
+	hook.color = env->proj->z;
 	if (env->mlx == NULL)
 		return (0);
 	if (keycode == CLOSE)

@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:45:53 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 10:37:54 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 17:35:00 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ t_proj			*init_iso(t_node *list, t_param *param)
 		elem->x = list->x;
 		elem->y = list->y;
 		elem->z = list->z;
-		elem->x_iso = (CTE1 * list->x - (CTE2 * list->y)) * param->zoom + \
+		elem->x_iso = (CTE1 * elem->x - (CTE2 * elem->y)) * param->zoom + \
 					param->xdefault;
-		elem->y_iso = (list->z + (CTE1 / 2 * list->x) + (CTE2 / 2 * list->y)) \
+		elem->y_iso = (elem->z + (CTE1 / 2 * elem->x) + (CTE2 / 2 * elem->y)) \
 					* param->zoom + param->ydefault;
 		elem->color = list->color;
 		proj = add_proj(proj, elem);
@@ -76,9 +76,9 @@ t_proj			*init_para(t_node *list, t_param *param)
 		elem->x = list->x;
 		elem->y = list->y;
 		elem->z = list->z;
-		elem->x_iso = (list->x + (CTE1 * list->z)) * param->zoom + \
+		elem->x_iso = (elem->x + (CTE1 * elem->z)) * param->zoom + \
 					param->xdefault;
-		elem->y_iso = (list->y + (CTE1 / 2) * list->z) * param->zoom +\
+		elem->y_iso = (elem->y + (CTE1 / 2) * elem->z) * param->zoom +\
 					param->ydefault;
 		elem->color = list->color;
 		proj = add_proj(proj, elem);

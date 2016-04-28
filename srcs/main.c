@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:36:57 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 15:23:46 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 17:23:54 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ int		fdf(t_env *env)
 		draw_line(env, tmp);
 		tmp = tmp->next;
 	}
-	mlx_string_put(env->mlx->mlx, env->mlx->win, 10, 40, 0x00FF00,\
+	mlx_string_put(env->mlx->mlx, env->mlx->win, 695, 965, 0xFCFEAE,\
 			"Current zoom x");
-	mlx_string_put(env->mlx->mlx, env->mlx->win, 150, 40, 0x00FF00, str);
+	mlx_string_put(env->mlx->mlx, env->mlx->win, 835, 965, 0xFCFEAE, str);
 	if (env->mlx->proj == 1)
-		mlx_string_put(env->mlx->mlx, env->mlx->win, 10, 10, 0xFF0000, \
-				"Current projection is parallel");
+		mlx_string_put(env->mlx->mlx, env->mlx->win, 170, 965, 0xFCFEAE, \
+				"Current proj : par");
 	else if (env->mlx->proj == 0)
-		mlx_string_put(env->mlx->mlx, env->mlx->win, 10, 10, 0x0000FF, \
-				"Current projection is isometrique");
+		mlx_string_put(env->mlx->mlx, env->mlx->win, 170, 965, 0xFCFEAE, \
+				"Current proj : iso");
 	return (0);
 }
 
@@ -55,8 +55,7 @@ int		main(int ac, char **av)
 	env = insert_env(fd);
 	fdf(env);
 	tmp = env->proj;
-	mlx_expose_hook(env->mlx->win, fdf, env);
-	mlx_key_hook(env->mlx->win, key_funct, env);
+	mlx_hook(env->mlx->win, 2, 3, key_funct, env);
 	mlx_loop(env->mlx->mlx);
 	return (0);
 }
