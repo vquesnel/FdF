@@ -6,35 +6,58 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:12 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 19:48:51 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 22:30:48 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*static t_proj		*change_color(t_env *env, int keycode)
+{
+	t_proj *tmp;
+
+	tmp = env->proj;
+	if (keycode == COLOR_A)
+	{
+		while (tmp)
+		{
+		tmp->color = (tmp->z > -10) ? BLUE : tmp->color;
+		tmp->color = (tmp->z <= -10 && tmp->z > -20) ? GREEN : tmp->color;
+		tmp->color = (tmp->z <= -20 && tmp->z > -40) ? BROWN : tmp->color;
+		tmp->color = (tmp->z <= -40) ? WHITE : tmp->color;
+		tmp = tmp->next;
+		}
+		env->mlx->color = 1;
+	}
+	if (keycode == COLOR_B)
+	{
+		env->mlx->color = 0;
+		return (env->proj);
+	}
+	return (env->proj);
+}*/
+/*static void		color(t_env *env, int keycode)
+{
+	if (keycode == COLOR_A)
+		env->proj = change_color(env, keycode);
+	fdf(env);
+}
+*/
 static void		zoom(t_env *env, int keycode, t_node coord)
 {
 	ft_memdel((void **)&env->param);
 	ft_memdel((void **)&env->proj);
 	if (keycode == P_ZOOM)
-	{
-		if (coord.x >= 100)
-			coord.x += 20;
-		else
-			coord.x += 2;
-	}
+		coord.x += (coord.x >= 100) ? 20 : 2;
 	else if (keycode == M_ZOOM && coord.x >= 3)
-	{
-		if (coord.x >= 120)
-			coord.x -= 20;
-		else
-			coord.x -= 2;
-	}
+		coord.x -= (coord.x >= 100) ? 20 : 2;
 	env->param = init_param(env->map, coord.x, coord.y, coord.z);
 	if (env->mlx->proj == 1)
 		env->proj = init_para(env->map, env->param);
 	else if (env->mlx->proj == 0)
 		env->proj = init_iso(env->map, env->param);
+//	if (env->mlx->color == 1)
+//		env->proj = change_color(env, keycode);
 	fdf(env);
 }
 
@@ -55,6 +78,8 @@ static void		moove(t_env *env, int keycode, t_node coord)
 		env->proj = init_para(env->map, env->param);
 	else if (env->mlx->proj == 0)
 		env->proj = init_iso(env->map, env->param);
+//	if (env->mlx->color == 1)
+//		env->proj = change_color(env, keycode);
 	fdf(env);
 }
 
@@ -74,19 +99,23 @@ static void		projection(t_env *env, int keycode, t_node coord)
 		env->proj = init_para(env->map, env->param);
 		env->mlx->proj = 1;
 	}
+//	if (env->mlx->color == 1)
+//		env->proj = change_color(env, keycode);
 	fdf(env);
 }
 
-static void		origin(t_env *env, int keycode, t_node coord)
+static void		origin(t_env *env, int keycode)
 {
 	ft_memdel((void **)&env->param);
 	ft_memdel((void **)&env->proj);
 	if (keycode == MIDDLE)
-		env->param = init_param(env->map, coord.x, X_SIZE / 2, Y_SIZE / 2);
+		env->param = init_param(env->map, 2, X_SIZE / 2, Y_SIZE / 2);
 	if (env->mlx->proj == 1)
 		env->proj = init_para(env->map, env->param);
 	else if (env->mlx->proj == 0)
 		env->proj = init_iso(env->map, env->param);
+//	if (env->mlx->color == 1)
+//		env->proj = change_color(env, keycode);
 	fdf(env);
 }
 
@@ -112,6 +141,8 @@ int				key_funct(int keycode, t_env *env)
 	if (keycode == ISO || keycode == PARA)
 		projection(env, keycode, hook);
 	if (keycode == MIDDLE)
-		origin(env, keycode, hook);
+		origin(env, keycode);
+//	if (keycode == COLOR_A)
+//		color(env, keycode);
 	return (0);
 }
