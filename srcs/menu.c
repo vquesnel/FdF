@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 16:55:05 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 18:29:52 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 19:44:59 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,14 @@ static void	options(void *mlx, void *win)
 	mlx_string_put(mlx, win, 700, 706, 0xFCFEAE, "zoom +    ");
 	mlx_string_put(mlx, win, 700, 726, 0xFFFFFF, "         :    -");
 	mlx_string_put(mlx, win, 700, 726, 0xFCFEAE, "zoom -   ");
-	mlx_string_put(mlx, win, 168, 686, 0xFFFFFF, "         :    i");
-	mlx_string_put(mlx, win, 168, 686, 0xFCFEAE, "iso      ");
-	mlx_string_put(mlx, win, 168, 706, 0xFFFFFF, "         :    p");
-	mlx_string_put(mlx, win, 168, 706, 0xFCFEAE, "para     ");
-	mlx_string_put(mlx, win, 168, 726, 0xFFFFFF, "         :   esc");
-	mlx_string_put(mlx, win, 168, 726, 0xFCFEAE, "exit     ");
+	mlx_string_put(mlx, win, 168, 676, 0xFFFFFF, "         :    i");
+	mlx_string_put(mlx, win, 168, 676, 0xFCFEAE, "iso      ");
+	mlx_string_put(mlx, win, 168, 696, 0xFFFFFF, "         :    p");
+	mlx_string_put(mlx, win, 168, 696, 0xFCFEAE, "para     ");
+	mlx_string_put(mlx, win, 168, 716, 0xFFFFFF, "         :   esc");
+	mlx_string_put(mlx, win, 168, 716, 0xFCFEAE, "exit     ");
+	mlx_string_put(mlx, win, 168, 736, 0xFFFFFF, "         :   tild");
+	mlx_string_put(mlx, win, 168, 736, 0xFCFEAE, "origin   ");
 }
 
 int			menu(t_env *env)

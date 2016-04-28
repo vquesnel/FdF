@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:12 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 17:38:52 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 19:48:51 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,19 @@ static void		projection(t_env *env, int keycode, t_node coord)
 	fdf(env);
 }
 
+static void		origin(t_env *env, int keycode, t_node coord)
+{
+	ft_memdel((void **)&env->param);
+	ft_memdel((void **)&env->proj);
+	if (keycode == MIDDLE)
+		env->param = init_param(env->map, coord.x, X_SIZE / 2, Y_SIZE / 2);
+	if (env->mlx->proj == 1)
+		env->proj = init_para(env->map, env->param);
+	else if (env->mlx->proj == 0)
+		env->proj = init_iso(env->map, env->param);
+	fdf(env);
+}
+
 int				key_funct(int keycode, t_env *env)
 {
 	t_node	hook;
@@ -98,5 +111,7 @@ int				key_funct(int keycode, t_env *env)
 		moove(env, keycode, hook);
 	if (keycode == ISO || keycode == PARA)
 		projection(env, keycode, hook);
+	if (keycode == MIDDLE)
+		origin(env, keycode, hook);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:30:45 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 21:06:04 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 19:45:38 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct		s_mlx
 	void			*win;
 	int				fd;
 	int				proj;
+	int				menu;
 }					t_mlx;
 
 typedef struct		s_param
