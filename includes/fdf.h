@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:39:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 14:49:25 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 16:52:53 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,8 @@ t_proj		*searchinlist(t_proj *proj, t_param *param);
 int			key_funct(int keycode, t_env *env);
 int			mouse_funct(int mousecode, t_env *env);
 int			menu(t_env *env);
+void		body(t_env *env);
+void		left_wing(t_env *env);
+void		right_wing(t_env *env);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/26 13:35:37 by vquesnel          #+#    #+#              #
-#*   Updated: 2016/04/27 23:54:56 by vquesnel         ###   ########.fr       *#
+#    Updated: 2016/04/28 16:51:24 by vquesnel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME= fdf
 SRCS= srcs/main.c srcs/draw_affine.c srcs/draw_line.c srcs/draw_vertical.c \
 	 srcs/get_map.c srcs/get_max.c srcs/init_coord.c srcs/init_env.c \
 	 srcs/init_mlx.c srcs/init_param.c srcs/init_proj.c srcs/searchinlist.c \
-	 srcs/init_node.c srcs/key_hook.c srcs/menu.c
+	 srcs/init_node.c srcs/key_hook.c srcs/menu.c srcs/menu_wings.c
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/
@@ -27,13 +27,13 @@ $(NAME):	$(OBJS)
 	@make -C libft/
 	@make -C mlx/
 	@gcc -o $(NAME) $(OBJS) $(LIBS) $(FRAMEWORK)
-	@echo "\033[41;37;1m     ______    ________   ____        ____                 __      \033[0m"
-	@echo "\033[41;37;1m    / ____/___/ / ____/  /  _/____   / __ \___  ____ _____/ /_  __ \033[0m"
-	@echo "\033[41;37;1m   / /_  / __  / /_      / // ___/  / /_/ / _ \/ __ '/ __  / / / / \033[0m"
-	@echo "\033[41;37;1m  / __/ / /_/ / __/    _/ /(__  )  / _, _/  __/ /_/ / /_/ / /_/ /  \033[0m"
-	@echo "\033[41;37;1m /_/    \__,_/_/      /___/____/  /_/ |_|\___/\__,_/\__,_/\__, /   \033[0m"
-	@echo "\033[41;37;1m                                                         /____/    \033[0m"
-	@echo "\033[31mvquesnel						       2016\033[0m"
+	@echo "\033[41;37;1m    ______    ______   _         ____  __    \033[0m"
+	@echo "\033[41;37;1m   / ____/___/ / __/  (_)____   / __ \/ /__  \033[0m"
+	@echo "\033[41;37;1m  / /_  / __  / /_   / / ___/  / / / / //_/  \033[0m"
+	@echo "\033[41;37;1m / __/ / /_/ / __/  / (__  )  / /_/ / ,<     \033[0m"
+	@echo "\033[41;37;1m/_/    \__,_/_/    /_/____/   \____/_/|_\    \033[0m"
+	@echo "\033[41;37;1m                                             \033[0m"
+	@echo "\033[31mvquesnel				2016\033[0m"
 
 
 $(OBJS): %.o: %.c

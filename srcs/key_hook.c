@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:12 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 15:08:22 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 16:38:20 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,19 @@ static	void	zoom(t_env *env, int keycode, t_node coord)
 	ft_memdel((void **)&env->param);
 	ft_memdel((void **)&env->proj);
 	if (keycode == P_ZOOM)
-		coord.x += 2;
+	{
+		if (coord.x >= 100)
+			coord.x += 20;
+		else
+			coord.x += 2;
+	}
 	else if (keycode == M_ZOOM && coord.x >= 3)
-		coord.x -= 2;
+	{
+		if (coord.x >= 120)
+			coord.x -= 20;
+		else
+			coord.x -= 2;
+	}
 	env->param = init_param(env->map, coord.x, coord.y, coord.z);
 	if (env->mlx->proj == 1)
 		env->proj = init_para(env->map, env->param);
