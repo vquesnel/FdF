@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:36:57 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 17:23:54 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 19:04:11 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ int		fdf(t_env *env)
 		draw_line(env, tmp);
 		tmp = tmp->next;
 	}
-	mlx_string_put(env->mlx->mlx, env->mlx->win, 695, 965, 0xFCFEAE,\
+	mlx_string_put(env->mlx->mlx, env->mlx->win, 695, 791, 0xFCFEAE,\
 			"Current zoom x");
-	mlx_string_put(env->mlx->mlx, env->mlx->win, 835, 965, 0xFCFEAE, str);
+	mlx_string_put(env->mlx->mlx, env->mlx->win, 835, 791, 0xFCFEAE, str);
 	if (env->mlx->proj == 1)
-		mlx_string_put(env->mlx->mlx, env->mlx->win, 170, 965, 0xFCFEAE, \
+		mlx_string_put(env->mlx->mlx, env->mlx->win, 170, 791, 0xFCFEAE, \
 				"Current proj : par");
 	else if (env->mlx->proj == 0)
-		mlx_string_put(env->mlx->mlx, env->mlx->win, 170, 965, 0xFCFEAE, \
+		mlx_string_put(env->mlx->mlx, env->mlx->win, 170, 791, 0xFCFEAE, \
 				"Current proj : iso");
 	return (0);
 }

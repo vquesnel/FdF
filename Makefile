@@ -6,7 +6,7 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/26 13:35:37 by vquesnel          #+#    #+#              #
-#    Updated: 2016/04/28 16:51:24 by vquesnel         ###   ########.fr        #
+#*   Updated: 2016/04/28 19:27:44 by vquesnel         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS= srcs/main.c srcs/draw_affine.c srcs/draw_line.c srcs/draw_vertical.c \
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/
-LIBS= -L libft/ -lft -L mlx/ -lmlx
+LIBS= -L libft/ -lft -L mlx/ -lmlx -lm
 FLAGS= -Wall -Wextra -Werror -O3 -Ofast -O2
 FRAMEWORK= -framework AppKit -framework OpenGL
 
@@ -27,14 +27,14 @@ $(NAME):	$(OBJS)
 	@make -C libft/
 	@make -C mlx/
 	@gcc -o $(NAME) $(OBJS) $(LIBS) $(FRAMEWORK)
-	@echo "\033[41;37;1m    ______    ______   _         ____  __    \033[0m"
-	@echo "\033[41;37;1m   / ____/___/ / __/  (_)____   / __ \/ /__  \033[0m"
-	@echo "\033[41;37;1m  / /_  / __  / /_   / / ___/  / / / / //_/  \033[0m"
-	@echo "\033[41;37;1m / __/ / /_/ / __/  / (__  )  / /_/ / ,<     \033[0m"
-	@echo "\033[41;37;1m/_/    \__,_/_/    /_/____/   \____/_/|_\    \033[0m"
-	@echo "\033[41;37;1m                                             \033[0m"
-	@echo "\033[31mvquesnel				2016\033[0m"
-
+	@echo "\n"
+	@echo "	\033[48;30;1m     ______    ______   _         ____  __   \033[0m"
+	@echo "	\033[48;30;1m    / ____/___/ / __/  (_)____   / __ \/ /__ \033[0m"
+	@echo "	\033[48;33;1m   / /_  / __  / /_   / / ___/  / / / / //_/ \033[0m"
+	@echo "	\033[48;33;1m  / __/ / /_/ / __/  / (__  )  / /_/ / ,<    \033[0m"
+	@echo "	\033[48;32;1m /_/    \__,_/_/    /_/____/   \____/_/|_\   \033[0m"
+	@echo "	\033[48;32;1m vquesnel                               2016 \033[0m"
+	@echo "\n"
 
 $(OBJS): %.o: %.c
 	@gcc $(FLAGS) $(INCLUDES) -c $< -o $@
