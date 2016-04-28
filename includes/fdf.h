@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:39:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 13:27:12 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 14:49:25 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <mlx.h>
 # include <stdio.h>
 # include <math.h>
-
 
 void		draw_affine(t_env *env, t_proj *start, t_proj *end);
 void		draw_line(t_env *env, t_proj *start);
