@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 13:18:35 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 12:30:12 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int					ft_isprint(int c);
 int					ft_isspace(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-void				ft_error(void);
+void				ft_error(char *str);
 
 /*
 ** PRINT FUNCTIONS

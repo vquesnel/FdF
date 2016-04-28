@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:39:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 23:52:34 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 13:27:12 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,11 @@
 
 # include "libft.h"
 # include "struct.h"
+# include "define.h"
 # include <mlx.h>
 # include <stdio.h>
 # include <math.h>
-# define CTE1 0.6
-# define CTE2 0.9
-# define D_COLOR 0xFFFFFF
-# define CLOSE 53
-# define SPACE 49
+
 
 void		draw_affine(t_env *env, t_proj *start, t_proj *end);
 void		draw_line(t_env *env, t_proj *start);

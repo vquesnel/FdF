@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:36:57 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 16:12:51 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 14:34:13 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ int		main(int ac, char **av)
 		ft_putstr("Usage: ./fdf <filename>\n");
 		return (0);
 	}
+	if (!(ft_strstr(av[1], ".fdf")))
+		ft_error("\033[31;1mFile isn't a fdf map.\033[0m");
 	if ((fd = open(av[1], O_RDONLY)) < 0)
-		ft_error();
+		ft_error("\033[31;1mError when openning file.\033[0m");
 	env = insert_env(fd);
 	fdf(env);
 	tmp = env->proj;

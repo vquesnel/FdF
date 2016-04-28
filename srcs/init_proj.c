@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:45:53 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 21:01:11 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 10:37:54 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_proj			*init_para(t_node *list, t_param *param)
 		elem->x = list->x;
 		elem->y = list->y;
 		elem->z = list->z;
-		elem->x_iso = (list->x +(CTE1 * list->z)) * param->zoom + \
+		elem->x_iso = (list->x + (CTE1 * list->z)) * param->zoom + \
 					param->xdefault;
 		elem->y_iso = (list->y + (CTE1 / 2) * list->z) * param->zoom +\
 					param->ydefault;

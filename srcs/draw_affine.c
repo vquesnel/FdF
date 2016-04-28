@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:24:14 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 16:42:37 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 14:30:09 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		draw_color(t_env *env, t_proj *start, t_proj *end, t_affine c)
 {
-	if (start->color == D_COLOR)
+	if (start->z > end->z)
 		mlx_pixel_put(env->mlx->mlx, env->mlx->win, c.x, c.y, end->color);
 	else
 		mlx_pixel_put(env->mlx->mlx, env->mlx->win, c.x, c.y, start->color);

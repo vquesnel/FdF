@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:38:46 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 18:11:54 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 12:35:00 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ t_node			*get_map(int fd)
 		new = convert_map(new, line);
 	}
 	else
-		ft_error();
+		ft_error("\033[31;1mError when reading the file.\033[0m");
 	while (get_next_line(fd, &line))
 	{
 		if (ft_tablen(ft_strsplit(line, ' ')) != x)
-			ft_error();
+			ft_error("\033[31;1mMap isn't a square.\033[0m");
 		new = convert_map(new, line);
 	}
 	return (new);

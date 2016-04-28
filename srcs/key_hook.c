@@ -5,123 +5,87 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/09 16:25:35 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 23:54:46 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/09 16:25:12 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/28 14:34:35 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		key_funct(int keycode, t_env *env)
+static	void	zoom(t_env *env, int keycode, t_node coord)
 {
-	void	*win2;
-	int		x;
-	int		i;
-	int		j;
-	static int		check;
+	ft_memdel((void **)&env->param);
+	ft_memdel((void **)&env->proj);
+	if (keycode == P_ZOOM)
+		coord.x += 2;
+	else if (keycode == M_ZOOM && coord.x >= 3)
+		coord.x -= 2;
+	env->param = init_param(env->map, coord.x, coord.y, coord.z);
+	if (env->mlx->proj == 1)
+		env->proj = init_para(env->map, env->param);
+	else if (env->mlx->proj == 0)
+		env->proj = init_iso(env->map, env->param);
+	fdf(env);
+}
 
-	win2 = NULL;
-	x = env->param->zoom;
-	i = env->param->xdefault;
-	j = env->param->ydefault;
+static void		moove(t_env *env, int keycode, t_node coord)
+{
+	ft_memdel((void **)&env->param);
+	ft_memdel((void **)&env->proj);
+	if (keycode == L_MOOVE)
+		coord.y -= 100;
+	else if (keycode == R_MOOVE)
+		coord.y += 100;
+	else if (keycode == D_MOOVE)
+		coord.z -= 100;
+	else if (keycode == U_MOOVE)
+		coord.z += 100;
+	env->param = init_param(env->map, coord.x, coord.y, coord.z);
+	if (env->mlx->proj == 1)
+		env->proj = init_para(env->map, env->param);
+	else if (env->mlx->proj == 0)
+		env->proj = init_iso(env->map, env->param);
+	fdf(env);
+}
+
+static void		projection(t_env *env, int keycode, t_node coord)
+{
+	ft_memdel((void **)&env->param);
+	ft_memdel((void **)&env->proj);
+	if (keycode == ISO)
+	{
+		env->param = init_param(env->map, coord.x, coord.y, coord.z);
+		env->proj = init_iso(env->map, env->param);
+		env->mlx->proj = 0;
+	}
+	else if (keycode == PARA)
+	{
+		env->param = init_param(env->map, coord.x, coord.y, coord.z);
+		env->proj = init_para(env->map, env->param);
+		env->mlx->proj = 1;
+	}
+	fdf(env);
+}
+
+int				key_funct(int keycode, t_env *env)
+{
+	t_node	hook;
+
+	hook.x = env->param->zoom;
+	hook.y = env->param->xdefault;
+	hook.z = env->param->ydefault;
 	if (env->mlx == NULL)
 		return (0);
 	if (keycode == CLOSE)
 		exit(EXIT_SUCCESS);
-	if (keycode == SPACE && check == 0)
+	if (keycode == SPACE)
 		menu(env);
-	if (keycode == SPACE && check)
-		mlx_destroy_window(env->mlx->mlx, win2);
-	if (keycode == 24)
-	{
-		mlx_clear_window(env->mlx->mlx, env->mlx->win);
-		x = env->param->zoom + 2;
-		ft_memdel((void **)&env->param);
-		ft_memdel((void **)&env->proj);
-		env->param = init_param(env->map, x, i, j);
-		if (env->mlx->proj == 1)
-				env->proj = init_para(env->map, env->param);
-		else
-				env->proj = init_iso(env->map, env->param);
-		fdf(env);
-	}
-	if (keycode == 27)
-	{
-		mlx_clear_window(env->mlx->mlx, env->mlx->win);
-		x = env->param->zoom - 2;
-		if (x >= 1)
-		{
-			ft_memdel((void **)&env->param);
-			ft_memdel((void **)&env->proj);
-			env->param = init_param(env->map, x, i, j);
-			if (env->mlx->proj == 1)
-				env->proj = init_para(env->map, env->param);
-			else
-				env->proj = init_iso(env->map, env->param);
-		}
-		fdf(env);
-	}
-	if (keycode == 123 || keycode == 124 || keycode == 125 || keycode == 126)
-	{
-		mlx_clear_window(env->mlx->mlx, env->mlx->win);
-		ft_memdel((void **)&env->param);
-		ft_memdel((void **)&env->proj);
-		if (keycode == 123)
-		{
-			i -= 100;
-			env->param = init_param(env->map, x, i, j);
-			if (env->mlx->proj == 1)
-				env->proj = init_para(env->map, env->param);
-			else
-				env->proj = init_iso(env->map, env->param);
-		}
-		if (keycode == 124)
-		{
-			i += 100;
-			env->param = init_param(env->map, x, i, j);
-			if (env->mlx->proj == 1)
-				env->proj = init_para(env->map, env->param);
-			else
-				env->proj = init_iso(env->map, env->param);
-		}
-		if (keycode == 126)
-		{
-			j -= 100;
-			env->param = init_param(env->map, x, i, j);
-			if (env->mlx->proj == 1)
-				env->proj = init_para(env->map, env->param);
-			else
-				env->proj = init_iso(env->map, env->param);
-		}
-		if (keycode == 125)
-		{
-			j += 100;
-			env->param = init_param(env->map, x, i, j);
-			if (env->mlx->proj == 1)
-				env->proj = init_para(env->map, env->param);
-			else
-				env->proj = init_iso(env->map, env->param);
-		}
-		fdf(env);
-	}
-	if (keycode == 34 || keycode == 35)
-	{
-		mlx_clear_window(env->mlx->mlx, env->mlx->win);
-		ft_memdel((void **)&env->param);
-		ft_memdel((void **)&env->proj);
-		if (keycode == 34)
-		{
-			env->param = init_param(env->map, x, i, j);
-			env->proj = init_iso(env->map, env->param);
-			env->mlx->proj = 0;
-		}
-		if (keycode == 35)
-		{
-			env->param = init_param(env->map, x, i, j);
-			env->proj = init_para(env->map, env->param);
-			env->mlx->proj = 1;
-		}
-		fdf(env);
-	}
+	if (keycode == P_ZOOM || keycode == M_ZOOM)
+		zoom(env, keycode, hook);
+	if (keycode == L_MOOVE || keycode == R_MOOVE || keycode == U_MOOVE || \
+			keycode == D_MOOVE)
+		moove(env, keycode, hook);
+	if (keycode == ISO || keycode == PARA)
+		projection(env, keycode, hook);
 	return (0);
 }
