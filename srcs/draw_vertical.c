@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:30:56 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 12:03:08 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/29 15:39:45 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,27 @@
 
 void		draw_vertical(t_env *env, t_proj *start, t_proj *end)
 {
-	int		i;
+	t_affine 		c;
 
-	i = start->y_iso;
-	if (start->y_iso < end->y_iso)
+	c.x = start->x_iso;
+	c.y = start->y_iso;
+	if (in_img(&c))
 	{
-		while (i <= end->y_iso)
+		if (start->y_iso < end->y_iso)
 		{
-			mlx_pixel_put(env->mlx->mlx, env->mlx->win, start->x_iso, i,\
-					start->color);
-			++i;
+			while (c.y <= end->y_iso)
+			{
+				mlx_put_pixel_to_image(env, &c,start->color);
+				c.y++;;
+			}
 		}
-	}
-	else if (start->y_iso > end->y_iso)
-	{
-		while (i >= end->y_iso)
+		else if (start->y_iso > end->y_iso)
 		{
-			mlx_pixel_put(env->mlx->mlx, env->mlx->win, start->x_iso, i,\
-					start->color);
-			--i;
+			while (c.y <= end->y_iso)
+			{
+				mlx_put_pixel_to_image(env, &c,start->color);
+				c.y--;
+			}
 		}
 	}
 }

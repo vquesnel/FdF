@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:30:45 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 19:45:38 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/29 17:02:44 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,23 @@ typedef struct		s_param
 	int				zoom;
 	int				xdefault;
 	int				ydefault;
+	int				high;
 }					t_param;
+
+typedef struct		s_img
+{
+	void			*img;
+	char			*data;
+	int				bpp;
+	int				sizeline;
+	int				endian;
+}					t_img;
 
 typedef struct		s_env
 {
 	t_node			*map;
 	t_proj			*proj;
+	t_img			*img;
 	t_mlx			*mlx;
 	t_param			*param;
 }					t_env;

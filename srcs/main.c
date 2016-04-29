@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:36:57 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 19:04:11 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/29 17:00:36 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,22 @@ int		fdf(t_env *env)
 		draw_line(env, tmp);
 		tmp = tmp->next;
 	}
-	mlx_string_put(env->mlx->mlx, env->mlx->win, 695, 791, 0xFCFEAE,\
-			"Current zoom x");
-	mlx_string_put(env->mlx->mlx, env->mlx->win, 835, 791, 0xFCFEAE, str);
+	mlx_put_image_to_window(env->mlx->mlx, env->mlx->win, env->img->img, 0, 0);
+	mlx_string_put(env->mlx->mlx, env->mlx->win, 695, 791, 0xAEECFE, "Current zoom x");
+	mlx_string_put(env->mlx->mlx, env->mlx->win, 839, 791, 0xFFFFFF, str);
+	free(str);
+	str = ft_itoa(env->param->xdefault);
+	mlx_string_put(env->mlx->mlx, env->mlx->win, 170, 791, 0xAEECFE, "position.x =  ");
+	mlx_string_put(env->mlx->mlx, env->mlx->win, 300, 791, 0xFFFFFF, str);
+	free(str);
+	str = ft_itoa(env->param->ydefault);
+	mlx_string_put(env->mlx->mlx, env->mlx->win, 170, 811, 0xAEECFE, "position.y =  ");
+	mlx_string_put(env->mlx->mlx, env->mlx->win, 300, 811, 0xFFFFFF, str);
 	if (env->mlx->proj == 1)
-		mlx_string_put(env->mlx->mlx, env->mlx->win, 170, 791, 0xFCFEAE, \
+		mlx_string_put(env->mlx->mlx, env->mlx->win, 695, 811, 0xAEECFE, \
 				"Current proj : par");
 	else if (env->mlx->proj == 0)
-		mlx_string_put(env->mlx->mlx, env->mlx->win, 170, 791, 0xFCFEAE, \
+		mlx_string_put(env->mlx->mlx, env->mlx->win, 695, 811, 0xAEECFE, \
 				"Current proj : iso");
 	return (0);
 }

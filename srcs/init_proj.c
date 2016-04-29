@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:45:53 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 17:35:00 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/29 17:02:21 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_proj			*init_iso(t_node *list, t_param *param)
 		elem = init_proj();
 		elem->x = list->x;
 		elem->y = list->y;
-		elem->z = list->z;
+		elem->z = list->z / param->high;
 		elem->x_iso = (CTE1 * elem->x - (CTE2 * elem->y)) * param->zoom + \
 					param->xdefault;
 		elem->y_iso = (elem->z + (CTE1 / 2 * elem->x) + (CTE2 / 2 * elem->y)) \
@@ -75,7 +75,7 @@ t_proj			*init_para(t_node *list, t_param *param)
 		elem = init_proj();
 		elem->x = list->x;
 		elem->y = list->y;
-		elem->z = list->z;
+		elem->z = list->z / param->high;
 		elem->x_iso = (elem->x + (CTE1 * elem->z)) * param->zoom + \
 					param->xdefault;
 		elem->y_iso = (elem->y + (CTE1 / 2) * elem->z) * param->zoom +\
