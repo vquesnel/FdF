@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:12 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/29 17:19:16 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/29 17:26:56 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,14 @@ static void		high(t_env *env, int keycode, t_node coord)
 {
 	ft_memdel((void **)&env->param);
 	ft_memdel((void **)&env->proj);
-	if (keycode == A_HIGH)
+	if (keycode == A_HIGH && coord.color != -1)
 		coord.color += 1;
-	else if (keycode == S_HIGH && coord.color > 1)
+	else if (keycode == A_HIGH && coord.color == -1)
+		coord.color += 2;
+	if (keycode == S_HIGH && coord.color != 1)
 		coord.color -= 1;
+	if (keycode == S_HIGH && coord.color == 1)
+		coord.color -= 2;
 	env->param = init_param(env->map, coord.x, coord.y, coord.z, coord.color);
 	if (env->mlx->proj == 1)
 		env->proj = init_para(env->map, env->param);
