@@ -6,57 +6,46 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:38:46 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/30 16:44:32 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 16:28:32 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static t_coord	init_coord(int x, int y, int z)
-{
-	t_coord coord;
-
-	coord.x = x;
-	coord.y = y;
-	coord.z = z;
-	return (coord);
-}
-
 static int		get_color(char *map)
 {
-	int i;
-	int color;
+	int		i;
 
-	color = 0xFFFFFF;
 	i = 0;
 	while (map[i])
 	{
 		if (map[i] == 'x')
-		{
-			color = ft_atoi_base(&map[i + 1], 16);
-			break ;
-		}
+			return (ft_atoi_base(&map[i + 1], 16));
 		i++;
 	}
-	return (color);
+	return (D_COLOR);
 }
 
 static t_node	*convert_map(t_node *list, char *line)
 {
-	int			y;
+	int			x;
 	char		**map;
-	static int	x;
-	t_coord		coord;
+	static int	y;
+	t_node		*elem;
 
-	y = 0;
+	x = 0;
 	map = ft_strsplit(line, ' ');
-	while (map[y])
+	while (map[x])
 	{
-		coord = init_coord(x, y, ft_atoi(map[y]));
-		list = insert_node(list, coord, get_color(map[y]));
-		y++;
+		elem = init_node();
+		elem->x = x;
+		elem->y = y;
+		elem->z = ft_atoi(map[x]);
+		elem->color = get_color(map[x]);
+		list = insert_node(list, elem);
+		x++;
 	}
-	x++;
+	y++;
 	free(map);
 	return (list);
 }

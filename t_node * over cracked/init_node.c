@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:42:59 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/30 16:45:04 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 14:20:46 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,16 @@ t_node		*init_node(void)
 	return (node);
 }
 
-t_node		*new_node(t_coord coord, int color)
-{
-	t_node	*node;
 
-	if (!(node = init_node()))
-		return (NULL);
-	node->x = coord.y;
-	node->y = coord.x;
-	node->z = coord.z;
-	node->color = color;
-	return (node);
-}
-
-t_node		*insert_node(t_node *node, t_coord coord, int color)
+t_node		*insert_node(t_node *list, t_node *elem)
 {
-	t_node	*new;
 	t_node	*tmp;
 
-	if (!(new = new_node(coord, color)))
-		return (NULL);
-	if (!node)
-		return (new);
-	tmp = node;
+	if (!list)
+		return (elem);
+	tmp = list;
 	while (tmp->next)
 		tmp = tmp->next;
-	tmp->next = new;
-	return (node);
+	tmp->next = elem;
+	return (list);
 }
