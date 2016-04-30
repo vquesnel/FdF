@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:16:47 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/30 16:43:17 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 19:48:33 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_node	*isometric(t_env *env, t_node *coor)
 {
 	t_coord	tmp;
 
-	tmp.z = coor->z * env->param->high;
+	tmp.z = coor->z + env->param->high;
 	tmp.y = (CTE1 * coor->x - CTE2 * coor->y) * env->param->zoom + \
 			env->param->xdefault;
 	if (coor->z == 0)
@@ -32,15 +32,20 @@ static t_node	*parallel(t_env *env, t_node *coor)
 {
 	t_coord	tmp;
 
-	tmp.z = coor->z * env->param->high;
+	tmp.z = -coor->z + env->param->high;
 	if (coor->z == 0)
-		tmp.y = (coor->x + CTE1 * coor->z) * env->param->zoom + \
-				env->param->xdefault;
+	{
+		tmp.y = (coor->x + CTE1 * -coor->z) * env->param->zoom + \
+			env->param->xdefault;
+		tmp.x = ((CTE1 / 2) * -coor->z + coor->y) * env->param->zoom + \
+			env->param->ydefault;
+	}
 	else
-		tmp.y = (coor->x + CTE1 * tmp.z) * env->param->zoom + \
+	{tmp.y = (coor->x + CTE1 * tmp.z) * env->param->zoom + \
 			env->param->xdefault;
 	tmp.x = ((CTE1 / 2) * tmp.z + coor->y) * env->param->zoom + \
 			env->param->ydefault;
+	}
 	return (new_node(tmp, coor->color));
 }
 

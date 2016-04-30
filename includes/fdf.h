@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:39:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/30 16:36:03 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 18:51:38 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@
 void		check_affine(t_env *env, t_node *start, t_node *end);
 void		draw_line(t_env *env, t_node *start);
 void		draw_vertical(t_env *env, t_node *start, t_node *end);
-t_node		*get_map(int fd);
+t_node		*get_map(int fd, t_param **param);
 int			get_xmax(t_node *node);
 int			get_ymax(t_node *node);
 t_env		*init_env(void);
 t_env		*insert_env(int fd);
 t_node		*init_node(void);
-t_node		*new_node(t_coord coord, int color);
-t_node		*insert_node(t_node *list, t_coord coord, int color);
-t_param		*init_param(t_node *node, int x, int y, int z, int a);
+t_node		*new_node(t_coord coord, int colo);
+t_node		*insert_node(t_node *list, t_node *elem);
+t_param		*init_param(int x, int y, int z, int a);
+t_param		*new_param(t_param *param, t_node hook);
 int			fdf(t_env *env);
 t_node		*searchinlist(t_node *proj, t_param *param);
 int			key_funct(int keycode, t_env *env);

@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 13:19:51 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/30 14:53:10 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 19:18:24 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define PARA 35
 # define P_ZOOM 24
 # define M_ZOOM 27
-# define MIDDLE 50
+# define MIDDLE 259
 # define A_HIGH 0
 # define S_HIGH 1
 #endif
