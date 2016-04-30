@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:12 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/29 19:44:20 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 16:35:21 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,15 @@
 	fdf(env);
 }
 */
+
 static void		high(t_env *env, int keycode, t_node coord)
 {
 	ft_memdel((void **)&env->param);
-	ft_memdel((void **)&env->proj);
 	if (keycode == A_HIGH)
 		coord.color += 1;
 	if (keycode == S_HIGH)
 		coord.color -= 1;
 	env->param = init_param(env->map, coord.x, coord.y, coord.z, coord.color);
-	if (env->mlx->proj == 1)
-		env->proj = init_para(env->map, env->param);
-	else if (env->mlx->proj == 0)
-		env->proj = init_iso(env->map, env->param);
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
 	fdf(env);
@@ -64,16 +60,11 @@ static void		high(t_env *env, int keycode, t_node coord)
 static void		zoom(t_env *env, int keycode, t_node coord)
 {
 	ft_memdel((void **)&env->param);
-	ft_memdel((void **)&env->proj);
 	if (keycode == P_ZOOM)
 		coord.x += (coord.x >= 100) ? 20 : 2;
-	else if (keycode == M_ZOOM && coord.x >= 3)
+	else if (keycode == M_ZOOM && coord.x > 3)
 		coord.x -= (coord.x >= 100) ? 20 : 2;
 	env->param = init_param(env->map, coord.x, coord.y, coord.z, coord.color);
-	if (env->mlx->proj == 1)
-		env->proj = init_para(env->map, env->param);
-	else if (env->mlx->proj == 0)
-		env->proj = init_iso(env->map, env->param);
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
 	fdf(env);
@@ -81,8 +72,6 @@ static void		zoom(t_env *env, int keycode, t_node coord)
 
 static void		moove(t_env *env, int keycode, t_node coord)
 {
-	ft_memdel((void **)&env->param);
-	ft_memdel((void **)&env->proj);
 	if (keycode == L_MOOVE)
 		coord.y -= 100;
 	else if (keycode == R_MOOVE)
@@ -92,31 +81,17 @@ static void		moove(t_env *env, int keycode, t_node coord)
 	else if (keycode == U_MOOVE)
 		coord.z += 100;
 	env->param = init_param(env->map, coord.x, coord.y, coord.z, coord.color);
-	if (env->mlx->proj == 1)
-		env->proj = init_para(env->map, env->param);
-	else if (env->mlx->proj == 0)
-		env->proj = init_iso(env->map, env->param);
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
 	fdf(env);
 }
 
-static void		projection(t_env *env, int keycode, t_node coord)
+static void		projection(t_env *env, int keycode)
 {
-	ft_memdel((void **)&env->param);
-	ft_memdel((void **)&env->proj);
 	if (keycode == ISO)
-	{
-		env->param = init_param(env->map, coord.x, coord.y, coord.z, coord.color);
-		env->proj = init_iso(env->map, env->param);
-		env->mlx->proj = 0;
-	}
+		env->proj = 0;
 	else if (keycode == PARA)
-	{
-		env->param = init_param(env->map, coord.x, coord.y, coord.z, coord.color);
-		env->proj = init_para(env->map, env->param);
-		env->mlx->proj = 1;
-	}
+		env->proj = 1;
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
 	fdf(env);
@@ -125,13 +100,8 @@ static void		projection(t_env *env, int keycode, t_node coord)
 static void		origin(t_env *env, int keycode)
 {
 	ft_memdel((void **)&env->param);
-	ft_memdel((void **)&env->proj);
 	if (keycode == MIDDLE)
-		env->param = init_param(env->map, 2, X_SIZE / 2, Y_SIZE / 2, 1);
-	if (env->mlx->proj == 1)
-		env->proj = init_para(env->map, env->param);
-	else if (env->mlx->proj == 0)
-		env->proj = init_iso(env->map, env->param);
+		env->param = init_param(env->map, 3, X_SIZE / 2, Y_SIZE / 2, 1);
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
 	fdf(env);
@@ -157,7 +127,7 @@ int				key_funct(int keycode, t_env *env)
 			keycode == D_MOOVE)
 		moove(env, keycode, hook);
 	if (keycode == ISO || keycode == PARA)
-		projection(env, keycode, hook);
+		projection(env, keycode);
 	if (keycode == MIDDLE)
 		origin(env, keycode);
 	if (keycode == A_HIGH || keycode == S_HIGH)

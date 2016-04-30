@@ -6,18 +6,18 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:34:51 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/27 12:04:02 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 13:32:36 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_proj		*searchinlist(t_proj *proj, t_param *param)
+t_node		*searchinlist(t_node *node, t_param *param)
 {
 	int		x;
-	t_proj	*tmp;
+	t_node	*tmp;
 
-	tmp = proj;
+	tmp = node;
 	x = param->x_max + 1;
 	while (x)
 	{

@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 13:19:51 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/29 17:07:08 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 14:53:10 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 ** CALCULATOR_NEEDED
 */
 
-# define CTE1 0.6
-# define CTE2 0.9
+# define CTE1 0.5
+# define CTE2 0.5
 # define D_COLOR 0xFFFFFF
 # define X_SIZE 1024
 # define Y_SIZE 850

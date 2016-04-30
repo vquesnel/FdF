@@ -6,18 +6,28 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:38:46 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 12:35:00 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 16:26:09 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static t_coord	init_coord(int x, int y, int z)
+{
+	t_coord coord;
+
+	coord.x = x;
+	coord.y = y;
+	coord.z = -z;
+	return (coord);
+}
 
 static int		get_color(char *map)
 {
 	int i;
 	int color;
 
-	color = D_COLOR;
+	color = 0xFFFFFF;
 	i = 0;
 	while (map[i])
 	{

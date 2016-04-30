@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 16:55:05 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 19:44:59 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 15:51:13 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int			menu(t_env *env)
 	void	*mlx;
 	void	*win;
 
-	mlx = env->mlx->mlx;
-	win = env->mlx->win;
+	mlx = env->mlx;
+	win = env->win;
 	options(mlx, win);
 	left_wing(env);
 	right_wing(env);

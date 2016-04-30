@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:30:45 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/29 17:02:44 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/30 13:23:29 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,6 @@ typedef struct		s_node
 	struct s_node	*next;
 }					t_node;
 
-typedef struct		s_proj
-{
-	int				x;
-	int				y;
-	int				z;
-	int				x_iso;
-	int				y_iso;
-	int				color;
-	struct s_proj	*next;
-}					t_proj;
-
-typedef struct		s_mlx
-{
-	void			*mlx;
-	void			*win;
-	int				fd;
-	int				proj;
-	int				menu;
-}					t_mlx;
-
 typedef struct		s_param
 {
 	int				x_max;
@@ -78,11 +58,12 @@ typedef struct		s_img
 
 typedef struct		s_env
 {
+	void			*mlx;
+	void			*win;
 	t_node			*map;
-	t_proj			*proj;
 	t_img			*img;
-	t_mlx			*mlx;
 	t_param			*param;
+	int				proj;
 }					t_env;
 
 #endif

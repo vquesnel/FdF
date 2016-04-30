@@ -12,10 +12,10 @@
 
 NAME= fdf
 
-SRCS= srcs/main.c srcs/draw_affine.c srcs/draw_line.c srcs/draw_vertical.c \
-	 srcs/get_map.c srcs/get_max.c srcs/init_coord.c srcs/init_env.c \
-	 srcs/init_mlx.c srcs/init_param.c srcs/init_proj.c srcs/searchinlist.c \
-	 srcs/init_node.c srcs/key_hook.c srcs/menu.c srcs/menu_wings.c srcs/init_img.c
+SRCS= srcs/main.c srcs/draw_one_line.c srcs/draw_line.c \
+	 srcs/get_map.c srcs/get_max.c srcs/init_env.c \
+	srcs/init_param.c srcs/searchinlist.c srcs/key_hook.c srcs/init_node.c srcs/init_img.c \
+	srcs/menu.c srcs/menu_wings.c
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/
