@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:12 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/30 19:41:55 by kwiessle         ###   ########.fr       */
+/*   Updated: 2016/05/01 11:57:05 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,41 +44,41 @@
 }
 */
 
-static void		high(t_env *env, int keycode, t_node coord)
+static void		high(t_env *env, int keycode, t_param hook)
 {
 	if (keycode == A_HIGH)
-		coord.color += 1;
+		hook.high += 1;
 	if (keycode == S_HIGH)
-		coord.color -= 1;
-	env->param = new_param(env->param, coord);
+		hook.high -= 1;
+	env->param = new_param(env->param, hook);
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
 	fdf(env);
 }
 
-static void		zoom(t_env *env, int keycode, t_node coord)
+static void		zoom(t_env *env, int keycode, t_param hook)
 {
 	if (keycode == P_ZOOM)
-		coord.x += (coord.x >= 100) ? 10 : 1;
-	else if (keycode == M_ZOOM && coord.x > 1)
-		coord.x -= (coord.x >= 100) ? 10 : 1;
-	env->param = new_param(env->param, coord);
+		hook.zoom += (hook.zoom >= 100) ? 10 : 1;
+	else if (keycode == M_ZOOM && hook.zoom > 1)
+		hook.zoom -= (hook.zoom >= 100) ? 10 : 1;
+	env->param = new_param(env->param, hook);
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
 	fdf(env);
 }
 
-static void		moove(t_env *env, int keycode, t_node coord)
+static void		moove(t_env *env, int keycode, t_param hook)
 {
 	if (keycode == L_MOOVE)
-		coord.y -= 5;
+		hook.xdefault -= 5;
 	else if (keycode == R_MOOVE)
-		coord.y += 5;
+		hook.xdefault += 5;
 	else if (keycode == D_MOOVE)
-		coord.z -= 5;
+		hook.ydefault -= 5;
 	else if (keycode == U_MOOVE)
-		coord.z += 5;
-	env->param = new_param(env->param, coord);
+		hook.ydefault += 5;
+	env->param = new_param(env->param, hook);
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
 	fdf(env);
@@ -95,15 +95,15 @@ static void		projection(t_env *env, int keycode)
 	fdf(env);
 }
 
-static void		origin(t_env *env, int keycode, t_node coord)
+static void		origin(t_env *env, int keycode, t_param hook)
 {
 	if (keycode == MIDDLE)
 	{
-		coord.x = 3;
-		coord.y = 512;
-		coord.z = 425;
-		coord.color = 0;
-		env->param = new_param(env->param, coord);
+		hook.zoom = 3;
+		hook.xdefault = 512;
+		hook.ydefault = 425;
+		hook.high = 0;
+		env->param = new_param(env->param, hook);
 	}
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
@@ -112,12 +112,12 @@ static void		origin(t_env *env, int keycode, t_node coord)
 
 int				key_funct(int keycode, t_env *env)
 {
-	t_node	hook;
+	t_param	hook;
 
-	hook.x = env->param->zoom;
-	hook.y = env->param->xdefault;
-	hook.z = env->param->ydefault;
-	hook.color = env->param->high;
+	hook.zoom = env->param->zoom;
+	hook.xdefault = env->param->xdefault;
+	hook.ydefault = env->param->ydefault;
+	hook.high = env->param->high;
 	if (env->mlx == NULL)
 		return (0);
 	if (keycode == CLOSE)

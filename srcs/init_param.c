@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:56:45 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/30 19:01:52 by kwiessle         ###   ########.fr       */
+/*   Updated: 2016/05/01 11:56:23 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ t_param		*init_param(int zoom, int xdefault, int ydefault, int high)
 	return (param);
 }
 
-t_param		*new_param(t_param *param, t_node hook)
+t_param		*new_param(t_param *param, t_param hook)
 {
 	t_param		*new;
 
-	new = init_param(hook.x, hook.y, hook.z, hook.color);
+	new = init_param(hook.zoom, hook.xdefault, hook.ydefault, hook.high);
 	new->x_max = param->x_max;
 	new->y_max = param->y_max;
 	return (new);

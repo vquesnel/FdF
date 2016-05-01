@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:39:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/30 18:51:38 by kwiessle         ###   ########.fr       */
+/*   Updated: 2016/05/01 11:56:39 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_node		*init_node(void);
 t_node		*new_node(t_coord coord, int colo);
 t_node		*insert_node(t_node *list, t_node *elem);
 t_param		*init_param(int x, int y, int z, int a);
-t_param		*new_param(t_param *param, t_node hook);
+t_param		*new_param(t_param *param, t_param hook);
 int			fdf(t_env *env);
 t_node		*searchinlist(t_node *proj, t_param *param);
 int			key_funct(int keycode, t_env *env);
