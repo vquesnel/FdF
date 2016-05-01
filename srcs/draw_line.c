@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:16:47 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/01 12:01:46 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/01 16:25:22 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static t_node	*isometric(t_env *env, t_node *coor)
 	tmp.z = coor->z + env->param->high;
 	tmp.y = (CTE1 * coor->x - CTE2 * coor->y) * env->param->zoom + \
 			env->param->xdefault;
-	if (coor->z == 0)
-		tmp.x = ((CTE1 / 2) * coor->x + (CTE2 / 2) * coor->y - coor->z) \
-				* env->param->zoom + env->param->ydefault;
-	else
+	if (coor->z != 0)
 		tmp.x = ((CTE1 / 2) * coor->x + (CTE2 / 2) * coor->y - tmp.z) * \
 				env->param->zoom + env->param->ydefault;
+	else
+		tmp.x = ((CTE1 / 2) * coor->x + (CTE2 / 2) * coor->y - coor->z) \
+				* env->param->zoom + env->param->ydefault;
 	return (new_node(tmp, coor->color));
 }
 
@@ -36,20 +36,21 @@ static t_node	*parallel(t_env *env, t_node *coor)
 	if (coor->z == 0)
 	{
 		tmp.y = (coor->x + CTE1 * -coor->z) * env->param->zoom + \
-			env->param->xdefault;
+				env->param->xdefault;
 		tmp.x = ((CTE1 / 2) * -coor->z + coor->y) * env->param->zoom + \
-			env->param->ydefault;
+				env->param->ydefault;
 	}
 	else
-	{tmp.y = (coor->x + CTE1 * tmp.z) * env->param->zoom + \
-			env->param->xdefault;
-	tmp.x = ((CTE1 / 2) * tmp.z + coor->y) * env->param->zoom + \
-			env->param->ydefault;
+	{
+		tmp.y = (coor->x + CTE1 * tmp.z) * env->param->zoom + \
+				env->param->xdefault;
+		tmp.x = ((CTE1 / 2) * tmp.z + coor->y) * env->param->zoom + \
+				env->param->ydefault;
 	}
 	return (new_node(tmp, coor->color));
 }
 
-void			draw_lines(t_env *env, t_node *start, t_node *end)
+static void			check_lines(t_env *env, t_node *start, t_node *end)
 {
 	t_node		*tmp;
 	t_node		*tmp2;
@@ -66,11 +67,11 @@ void			draw_line(t_env *env, t_node *start)
 {
 	if (start->x != env->param->x_max && start->y != env->param->y_max)
 	{
-		draw_lines(env, start, start->next);
-		draw_lines(env, start, searchinlist(start, env->param));
+		check_lines(env, start, start->next);
+		check_lines(env, start, searchinlist(start, env->param));
 	}
 	else if (start->x == env->param->x_max && start->y != env->param->y_max)
-		draw_lines(env, start, searchinlist(start, env->param));
+		check_lines(env, start, searchinlist(start, env->param));
 	else if (start->x != env->param->x_max && start->y == env->param->y_max)
-		draw_lines(env, start, start->next);
+		check_lines(env, start, start->next);
 }

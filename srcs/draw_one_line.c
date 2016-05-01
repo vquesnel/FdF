@@ -6,13 +6,13 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:24:14 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/30 16:33:07 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/01 15:41:55 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		draw_color(t_env *env, t_node *start, t_node *end, t_affine c)
+static void		get_color(t_env *env, t_node *start, t_node *end, t_affine c)
 {
 	if (env->param->high >= 0)
 	{
@@ -40,7 +40,7 @@ static void		draw_affine(t_env *env, t_node *start, t_node *end, t_affine c)
 		{
 			while (c.y >= c.coef * (c.x + 1) + c.cst)
 			{
-				draw_color(env, start, end, c);
+				get_color(env, start, end, c);
 				c.y--;
 			}
 		}
@@ -48,7 +48,7 @@ static void		draw_affine(t_env *env, t_node *start, t_node *end, t_affine c)
 		{
 			while (c.y <= c.coef * (c.x + 1) + c.cst)
 			{
-				draw_color(env, start, end, c);
+				get_color(env, start, end, c);
 				c.y++;
 			}
 		}

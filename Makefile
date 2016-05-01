@@ -6,16 +6,16 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/26 13:35:37 by vquesnel          #+#    #+#              #
-#*   Updated: 2016/04/30 18:44:08 by kwiessle         ###   ########.fr       *#
+#*   Updated: 2016/05/01 15:49:05 by vquesnel         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 NAME= fdf
 
 SRCS= srcs/main.c srcs/draw_one_line.c srcs/draw_line.c \
-	 srcs/get_map.c srcs/get_max.c srcs/init_env.c \
+	 srcs/get_map.c  srcs/init_env.c \
 	srcs/init_param.c srcs/searchinlist.c srcs/init_node.c srcs/init_img.c \
-	srcs/menu.c srcs/menu_wings.c srcs/key_hook.c
+	srcs/menu.c srcs/menu_wings.c srcs/key_hooks.c srcs/key_function.c
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/

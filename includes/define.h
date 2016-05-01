@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 13:19:51 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/01 11:52:16 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/01 16:23:23 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@
 # define R_MOOVE 124
 # define U_MOOVE 125
 # define D_MOOVE 126
-# define ISO 34
-# define PARA 35
-# define P_ZOOM 24
-# define M_ZOOM 27
+# define ISO 1
+# define PARA 2
+# define P_ZOOM 5
+# define M_ZOOM 4
 # define MIDDLE 50
 # define A_HIGH 0
 # define S_HIGH 1
