@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:30:45 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/30 13:23:29 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 10:50:47 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct		s_param
 	int				zoom;
 	int				xdefault;
 	int				ydefault;
-	int				high;
+	double			high;
 }					t_param;
 
 typedef struct		s_img

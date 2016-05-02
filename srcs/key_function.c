@@ -6,13 +6,13 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 15:46:05 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/01 16:23:48 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 10:48:06 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int				key_funct(int keycode, t_env *env)
+int		key_funct(int keycode, t_env *env)
 {
 	t_param	hook;
 
@@ -38,13 +38,12 @@ int				key_funct(int keycode, t_env *env)
 
 int		mouse_funct(int button, int x, int y, t_env *env)
 {
-t_param	hook;
+	t_param	hook;
 
 	hook.zoom = env->param->zoom;
 	hook.xdefault = env->param->xdefault;
 	hook.ydefault = env->param->ydefault;
 	hook.high = env->param->high;
-
 	(void)x;
 	(void)y;
 	(void)env;

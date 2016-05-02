@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:36:57 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/01 16:07:18 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 10:26:15 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int		main(int ac, char **av)
 	if ((fd = open(av[1], O_RDONLY)) < 0)
 		ft_error("\033[31;1mError when openning file.\033[0m");
 	env = init_env(fd);
+	close(fd);
 	fdf(env);
 	mlx_hook(env->win, 2, 3, key_funct, env);
 	mlx_mouse_hook(env->win, mouse_funct, env);

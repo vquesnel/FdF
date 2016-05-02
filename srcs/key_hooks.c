@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:12 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/01 16:23:22 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 10:22:10 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void		high(t_env *env, int keycode, t_param hook)
 {
 	if (keycode == A_HIGH)
-		hook.high += 1;
+		hook.high += 0.1;
 	if (keycode == S_HIGH)
-		hook.high -= 1;
+		hook.high -= 0.1;
 	env->param = new_param(env->param, hook);
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
@@ -39,13 +39,13 @@ void		zoom(t_env *env, int keycode, t_param hook)
 void		moove(t_env *env, int keycode, t_param hook)
 {
 	if (keycode == L_MOOVE)
-		hook.xdefault -= 5;
+		hook.xdefault -= 2;
 	else if (keycode == R_MOOVE)
-		hook.xdefault += 5;
+		hook.xdefault += 2;
 	else if (keycode == D_MOOVE)
-		hook.ydefault -= 5;
+		hook.ydefault -= 2;
 	else if (keycode == U_MOOVE)
-		hook.ydefault += 5;
+		hook.ydefault += 2;
 	env->param = new_param(env->param, hook);
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);
@@ -70,7 +70,7 @@ void		origin(t_env *env, int keycode, t_param hook)
 		hook.zoom = 3;
 		hook.xdefault = 512;
 		hook.ydefault = 425;
-		hook.high = 0;
+		hook.high = 1;
 		env->param = new_param(env->param, hook);
 	}
 	ft_memdel((void **)&env->img);

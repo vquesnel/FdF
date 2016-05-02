@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:39:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/01 16:01:22 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 10:28:34 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int			fdf(t_env *env);
 */
 t_node		*get_map(int fd, t_param **param);
 t_node		*init_node(void);
-t_node		*new_node(t_coord coord, int colo);
+t_node		*new_node(t_coord coord, int color);
 t_node		*insert_node(t_node *list, t_node *elem);
 t_env		*new_env(void);
 t_env		*init_env(int fd);
-t_param		*init_param(int x, int y, int z, int a);
+t_param		*init_param(int x, int y, int z, float a);
 t_param		*new_param(t_param *param, t_param hook);
 t_node		*searchinlist(t_node *proj, t_param *param);
 

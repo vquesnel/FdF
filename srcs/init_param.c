@@ -6,13 +6,13 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:56:45 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/01 11:56:23 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 10:19:24 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_param		*init_param(int zoom, int xdefault, int ydefault, int high)
+t_param		*init_param(int zoom, int xdefault, int ydefault, float high)
 {
 	t_param	*param;
 

@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:24:14 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/01 15:41:55 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 10:48:21 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,10 @@
 
 static void		get_color(t_env *env, t_node *start, t_node *end, t_affine c)
 {
-	if (env->param->high >= 0)
-	{
-		if (start->z > end->z)
-			mlx_put_pixel_to_image(env, &c, end->color);
-		else
-			mlx_put_pixel_to_image(env, &c, start->color);
-	}
+	if (start->color > end->color)
+		mlx_put_pixel_to_image(env, &c, end->color);
 	else
-	{
-		if (start->z < end->z)
-			mlx_put_pixel_to_image(env, &c, end->color);
-		else
-			mlx_put_pixel_to_image(env, &c, start->color);
-	}
+		mlx_put_pixel_to_image(env, &c, start->color);
 }
 
 static void		draw_affine(t_env *env, t_node *start, t_node *end, t_affine c)
