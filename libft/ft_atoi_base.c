@@ -6,12 +6,11 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 16:06:17 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 13:26:52 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 13:51:47 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int		hexa_to_int(char c)
 {
@@ -22,16 +21,6 @@ int		hexa_to_int(char c)
 	if (c > 64 && c < 71)
 		return (c - 55);
 	return (-1);
-}
-
-int		ft_strlen(char *str)
-{
-	int		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }
 
 int		max_power(char *str, int base)

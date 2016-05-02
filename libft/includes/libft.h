@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 12:29:02 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 13:51:59 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <sys/uio.h>
 # include <fcntl.h>
 # include <sys/types.h>
-# define BUFF_SIZE 24
+# define BUFF_SIZE 20000
 # define EOL '\n'
 
 typedef struct		s_line
@@ -108,7 +108,7 @@ int					ft_tablen(char **tab);
 
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
-int					ft_atoi_base(const char *str, int base);
+int					ft_atoi_base(char *str, int base);
 char				*ft_itoa_base(int value, int base);
 
 /*

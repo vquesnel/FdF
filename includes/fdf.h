@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:39:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/02 10:28:34 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 13:54:31 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "define.h"
 # include <mlx.h>
 # include <math.h>
-# include <stdio.h>
 
 /*
 ** DRAW FUNCTIONS
