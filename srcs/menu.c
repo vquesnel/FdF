@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 16:55:05 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/01 16:20:58 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/03 13:28:37 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,25 @@ static void	signature(void *mlx, void *win)
 static void	options(void *mlx, void *win)
 {
 	signature(mlx, win);
-	mlx_string_put(mlx, win, 700, 686, 0xFCFEAE, "moove    ");
-	mlx_string_put(mlx, win, 700, 686, 0xFFFFFF, "         :  arrow");
-	mlx_string_put(mlx, win, 700, 706, 0xFFFFFF, "         :  scroll");
-	mlx_string_put(mlx, win, 700, 706, 0xFCFEAE, "zoom      ");
-	mlx_string_put(mlx, win, 700, 726, 0xFFFFFF, "         :   esc");
-	mlx_string_put(mlx, win, 700, 726, 0xFCFEAE, "exit     ");
-	mlx_string_put(mlx, win, 168, 686, 0xFFFFFF, "         : left click");
-	mlx_string_put(mlx, win, 168, 686, 0xFCFEAE, "iso      ");
-	mlx_string_put(mlx, win, 168, 706, 0xFFFFFF, "         : right clik");
-	mlx_string_put(mlx, win, 168, 706, 0xFCFEAE, "para     ");
-	mlx_string_put(mlx, win, 168, 726, 0xFFFFFF, "         :   tild");
-	mlx_string_put(mlx, win, 168, 726, 0xFCFEAE, "origin   ");
+	mlx_string_put(mlx, win, 700, 676, 0xFCFEAE, "moove    ");
+	mlx_string_put(mlx, win, 700, 676, 0xFFFFFF, "         :  arrow");
+	mlx_string_put(mlx, win, 700, 696, 0xFFFFFF, "         :  scroll");
+	mlx_string_put(mlx, win, 700, 696, 0xFCFEAE, "zoom      ");
+	mlx_string_put(mlx, win, 700, 716, 0xFFFFFF, "         :   esc");
+	mlx_string_put(mlx, win, 700, 716, 0xFCFEAE, "exit     ");
+	mlx_string_put(mlx, win, 700, 736, 0xFFFFFF, "         :   tild");
+	mlx_string_put(mlx, win, 700, 736, 0xFCFEAE, "origin   ");
+	mlx_string_put(mlx, win, 168, 676, 0xFFFFFF, "         : left click");
+	mlx_string_put(mlx, win, 168, 676, 0xFCFEAE, "iso      ");
+	mlx_string_put(mlx, win, 168, 696, 0xFFFFFF, "         : right clik");
+	mlx_string_put(mlx, win, 168, 696, 0xFCFEAE, "para     ");
+	mlx_string_put(mlx, win, 168, 716, 0xFFFFFF, "         : a");
+	mlx_string_put(mlx, win, 168, 716, 0xFCFEAE, "altitude+");
+	mlx_string_put(mlx, win, 168, 736, 0xFFFFFF, "         : s");
+	mlx_string_put(mlx, win, 168, 736, 0xFCFEAE, "altitude-");
+
+
+
 }
 
 int			menu(t_env *env)
