@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 16:55:05 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/03 13:28:37 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/04 11:08:40 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,6 @@ static void	options(void *mlx, void *win)
 	mlx_string_put(mlx, win, 168, 716, 0xFCFEAE, "altitude+");
 	mlx_string_put(mlx, win, 168, 736, 0xFFFFFF, "         : s");
 	mlx_string_put(mlx, win, 168, 736, 0xFCFEAE, "altitude-");
-
-
-
 }
 
 int			menu(t_env *env)
