@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 15:46:05 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/02 10:48:06 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/05 16:19:54 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int		mouse_funct(int button, int x, int y, t_env *env)
 	hook.high = env->param->high;
 	(void)x;
 	(void)y;
-	(void)env;
 	if (button == P_ZOOM || button == M_ZOOM)
 		zoom(env, button, hook);
 	if (button == PARA || button == ISO)
