@@ -6,13 +6,11 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:11:29 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/03/19 17:36:19 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/18 14:02:53 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <limits.h>
 
 static	int		ft_int_len(int n)
 {
@@ -43,7 +41,7 @@ char			*ft_itoa(int n)
 
 	len = ft_int_len(n);
 	str = (char *)malloc(sizeof(char) * len + 1);
-	if (n == INT_MIN)
+	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	if (n == 0 || !str)
 		return (ft_strdup("0"));
