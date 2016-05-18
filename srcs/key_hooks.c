@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 16:25:12 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/02 10:22:10 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/13 13:55:23 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void		high(t_env *env, int keycode, t_param hook)
 {
 	if (keycode == A_HIGH)
-		hook.high += 0.1;
+		hook.high *= 1.1;
 	if (keycode == S_HIGH)
-		hook.high -= 0.1;
+		hook.high /= 1.1;
 	env->param = new_param(env->param, hook);
 	ft_memdel((void **)&env->img);
 	env->img = init_img(env);

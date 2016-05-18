@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 11:30:45 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/02 10:50:47 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/13 13:54:42 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct		s_coord
 {
 	int				x;
 	int				y;
-	int				z;
+	double			z;
 }					t_coord;
 
 typedef struct		s_node
