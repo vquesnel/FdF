@@ -6,13 +6,13 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:36:57 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/02 10:26:15 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/20 15:24:02 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		fdf(t_env *env)
+int			fdf(t_env *env)
 {
 	t_node	*tmp;
 	char	*str;
@@ -41,7 +41,13 @@ int		fdf(t_env *env)
 	return (0);
 }
 
-int		main(int ac, char **av)
+static int	close_win(t_env *env)
+{
+	free(env);
+	exit(EXIT_SUCCESS);
+}
+
+int			main(int ac, char **av)
 {
 	int		fd;
 	t_env	*env;
@@ -59,6 +65,7 @@ int		main(int ac, char **av)
 	close(fd);
 	fdf(env);
 	mlx_hook(env->win, 2, 3, key_funct, env);
+	mlx_hook(env->win, 17, 1l << 17, close_win, env);
 	mlx_mouse_hook(env->win, mouse_funct, env);
 	mlx_loop(env->mlx);
 	return (0);
